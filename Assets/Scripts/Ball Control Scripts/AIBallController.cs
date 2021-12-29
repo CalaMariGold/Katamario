@@ -224,7 +224,7 @@ public class AIBallController : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
 
         #region Collect Prop
@@ -280,7 +280,10 @@ public class AIBallController : MonoBehaviour
 
             // Disable the players's components and change its tag
             player = null;
-            collision.transform.GetComponent<SphereCollider>().enabled = false;
+            foreach (var spherecollider in collision.transform.GetComponents<SphereCollider>())
+            {
+                spherecollider.enabled = false;
+            }
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
             collision.transform.tag = "Collected";
 
@@ -313,7 +316,10 @@ public class AIBallController : MonoBehaviour
 
             // Disable the AI's components and change its tag
             collision.gameObject.GetComponent<AIBallController>().AIgameObject = null;
-            collision.transform.GetComponent<SphereCollider>().enabled = false;
+            foreach (var spherecollider in collision.transform.GetComponents<SphereCollider>())
+            {
+                spherecollider.enabled = false;
+            }
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
             collision.transform.tag = "Collected";
         }

@@ -11,6 +11,7 @@ public class PlayerBallController : MonoBehaviour
     private const string _AItag = "AI";
     private const string _propTag = "Prop";
     private const string _boostTag = "BoostPowerUp";
+    private const string _magnetTag = "MagnetPowerUp";
 
     [SerializeField] public float rollSpeed;
 
@@ -68,8 +69,11 @@ public class PlayerBallController : MonoBehaviour
         {
             if (_props[i] != null)
             {
-                if (_props[i].transform.localScale.magnitude * 5 <= playerSize)
+                if (_props[i].transform.localScale.magnitude * 5 <= playerSize) {
                     _props[i].GetComponent<MeshRenderer>().material.color = Color.green;
+                    _props[i].GetComponent<BoxCollider>().isTrigger = true;
+                }
+                else _props[i].GetComponent<BoxCollider>().isTrigger = false;
             }
         }
 
@@ -85,19 +89,23 @@ public class PlayerBallController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
+
         // If the player picks up a boost powerup
-        if (other.gameObject.CompareTag(_boostTag))
+        if (collision.gameObject.CompareTag(_boostTag))
         {
             _powerUp.PickUpBoost(this.gameObject);
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
+        // If the player picks up a magnet powerup
+        if (collision.gameObject.CompareTag(_magnetTag))
+        {
+            _powerUp.PickUpMagnet(this.gameObject);
+            Destroy(collision.gameObject);
+        }
+
         #region Collect Prop
         // If player collides with and the prop's scale * 5 is <= the player's size
         if (collision.gameObject.CompareTag(_propTag) && collision.transform.localScale.magnitude * 5 <= playerSize)
@@ -167,7 +175,10 @@ public class PlayerBallController : MonoBehaviour
             }
 
             // Disable the AI's components and change its tag
-            collision.transform.GetComponent<SphereCollider>().enabled = false;
+            foreach (var spherecollider in collision.transform.GetComponents<SphereCollider>())
+            {
+                spherecollider.enabled = false;
+            }
             collision.transform.GetComponent<AIBallController>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
             collision.transform.tag = "Collected";
