@@ -28,13 +28,13 @@ public class GameManager : MonoBehaviour
     {
         playerBallController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBallController>();
     }
-    void Start()
+    private void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update()
+    private void Update()
     {
         Time.timeScale = timeScale;
 

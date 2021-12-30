@@ -48,7 +48,7 @@ public class AIBallController : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         DetermineAIState();
     }
