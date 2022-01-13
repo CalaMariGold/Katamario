@@ -60,7 +60,7 @@ public class PowerUp : MonoBehaviour
             {
                 if (cooldown == false) {
                     StartCoroutine(BoostCoolDown(3, 5));
-                    user.GetComponent<PlayerBallController>().ChangeRollSpeed(400);
+                    user.GetComponent<PlayerBallController>().ChangeRollSpeed(600);
                 }
 
             }
