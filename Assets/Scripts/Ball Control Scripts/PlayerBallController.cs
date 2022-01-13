@@ -12,10 +12,9 @@ public class PlayerBallController : MonoBehaviour
     private const string _propTag = "Prop";
     private const string _boostTag = "BoostPowerUp";
 
-    [SerializeField] public float rollSpeed;
+    public float rollSpeed;
 
     [SerializeField] private Camera _camera;
-
     [SerializeField] private CinemachineFreeLook _cineCamera;
     [SerializeField] private PowerUp _powerUp;
 
@@ -51,7 +50,7 @@ public class PlayerBallController : MonoBehaviour
         _playerRigidbody.AddForce(rollSpeed * Time.deltaTime * movement);
     }
 
-    public void changeRollSpeed(float speed)
+    public void ChangeRollSpeed(float speed)
     {
         rollSpeed += speed;
     }
