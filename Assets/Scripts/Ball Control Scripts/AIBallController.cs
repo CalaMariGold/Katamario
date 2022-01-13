@@ -27,9 +27,10 @@ public class AIBallController : MonoBehaviour
     // AITotalSearchRadius is the (AIsize/2) + AISearchRadius
     [SerializeField] private float AISearchRadius;
     private float AITotalSearchRadius;
-
     public bool chasingPlayer = false;
-    private bool otherAIChasingPlayer = false;
+
+    // Other Script Variables
+    [SerializeField] private GameManager gameManager;
 
 
     private void Awake()
@@ -80,24 +81,6 @@ public class AIBallController : MonoBehaviour
                 ChaseAI();
                 ChaseProps();
                 chasingPlayer = false;
-                if (player != null)
-                {
-                    // Check if any other AI in the game is chasing the player
-                    GameObject[] gos;
-                    gos = GameObject.FindGameObjectsWithTag(_AItag);
-                    foreach (GameObject go in gos)
-                    {
-                        // If it finds any other AI is chasing the player, cache it and do nothing
-                        if (go.GetComponent<AIBallController>().chasingPlayer == true)
-                        {
-                            otherAIChasingPlayer = true;
-                        }
-                    }
-
-                    // Don't set the player's color back to white if another AI is chasing them
-                    if (!otherAIChasingPlayer)
-                        player.GetComponent<MeshRenderer>().material.color = Color.white;
-                }
             }
         }
         // If the player or AI doesn't exist, or if the AI is smaller than the player
@@ -106,24 +89,6 @@ public class AIBallController : MonoBehaviour
             chasingPlayer = false;
             ChaseAI();
             ChaseProps();
-            if (player != null)
-            {
-                // Check if any other AI in the game is chasing the player
-                GameObject[] gos;
-                gos = GameObject.FindGameObjectsWithTag(_AItag);
-                foreach (GameObject go in gos)
-                {
-                    // If it finds any other AI is chasing the player, remember it and do nothing
-                    if (go.GetComponent<AIBallController>().chasingPlayer == true)
-                    {
-                        otherAIChasingPlayer = true;
-                    }
-                    else otherAIChasingPlayer = false;
-                }
-                // Don't set the player's color back to white if another AI is chasing them
-                if (!otherAIChasingPlayer)
-                    player.GetComponent<MeshRenderer>().material.color = Color.white;
-            }
         }
     }
 
@@ -139,41 +104,22 @@ public class AIBallController : MonoBehaviour
 
         chasingPlayer = false;
 
-        // Checking this again to make sure otherAIChasingPlayer gets set to false
-        GameObject[] AIgos;
-        AIgos = GameObject.FindGameObjectsWithTag(_AItag);
-        foreach (GameObject go in AIgos)
-        {
-            // If it finds any other AI is chasing the player, cache it and do nothing
-            if (go.GetComponent<AIBallController>().chasingPlayer == true)
-            {
-                otherAIChasingPlayer = true;
-            }
-            else otherAIChasingPlayer = false;
-        }
-
         for (int i = 0; i < gos.Length; i++)
         {
-            // Trying to implement the AI looking for a different prop if the prop its trying to collect is too big
-            // but it no work :(
-            //if (gos[i].transform.localScale.magnitude > AIsize) { return; }
-            //else
-            //{
-                Vector3 diff = gos[i].transform.position - position;
-                float curDistance = diff.sqrMagnitude;
-                if (curDistance < distance)
+            Vector3 diff = gos[i].transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                if (gos[i].GetComponent<BoxCollider>().enabled == false)
                 {
-                    if (gos[i].GetComponent<BoxCollider>().enabled == false)
-                    {
-                        gos[i].tag = "Collected";
-                        return;
-                    }
-
-                    closest = gos[i];
-                    distance = curDistance;
+                    gos[i].tag = "Collected";
+                    return;
                 }
-                AImovement = (closest.transform.position - this.transform.position).normalized;
-            //}
+
+                closest = gos[i];
+                distance = curDistance;
+            }
+            AImovement = (closest.transform.position - this.transform.position).normalized;
         }
         AIrigidbody.AddForce(AImovement * rollSpeed * Time.fixedDeltaTime);
 
@@ -253,6 +199,9 @@ public class AIBallController : MonoBehaviour
             // Disable the prop's collider and change it's material
             collision.transform.GetComponent<BoxCollider>().enabled = false;
             collision.transform.GetComponent<MeshRenderer>().material.color = Color.green;
+
+            // Check if player mesh color needs to change
+            gameManager.UpdatePlayerMeshColor();
         }
         #endregion
 
@@ -283,6 +232,9 @@ public class AIBallController : MonoBehaviour
             collision.transform.GetComponent<SphereCollider>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
             collision.transform.tag = "Collected";
+
+            // Check if player mesh color needs to change
+            gameManager.UpdatePlayerMeshColor();
 
             // Invoke the GameOver function in GameManager
             GameOver?.Invoke();
@@ -316,6 +268,9 @@ public class AIBallController : MonoBehaviour
             collision.transform.GetComponent<SphereCollider>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
             collision.transform.tag = "Collected";
+
+            // Check if player mesh color needs to change
+            gameManager.UpdatePlayerMeshColor();
         }
         #endregion
 
