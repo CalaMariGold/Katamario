@@ -47,7 +47,7 @@ public class PlayerBallController : MonoBehaviour
     private void Update()
     {
         // Player movement
-        Vector3 input = new(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         Vector3 movement = (input.z * _camera.transform.forward) + (input.x * _camera.transform.right);
         _playerRigidbody.AddForce(rollSpeed * Time.deltaTime * movement);
     }

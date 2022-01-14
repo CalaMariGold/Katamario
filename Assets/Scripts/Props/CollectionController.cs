@@ -58,7 +58,7 @@ public class CollectionController : MonoBehaviour
     {
         // Seconds to wait before absorption starts
         yield return new WaitForSeconds(3);
-        Vector3 destinationScale = new(0, 0, 0);
+        Vector3 destinationScale = new Vector3(0, 0, 0);
 
         if (child != null)
         {
