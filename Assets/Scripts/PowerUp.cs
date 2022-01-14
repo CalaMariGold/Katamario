@@ -5,25 +5,31 @@ using UnityEngine.UI;
 
 public class PowerUp : MonoBehaviour
 {
-
-    private GameObject player;
-
     private const string _playerTag = "Player";
     private const string _boostTag = "BoostPowerUp";
 
     static List<GameObject> boostUsers = new List<GameObject>();
 
+    private GameObject player;
     private bool _cooldown = false;
     private bool _alreadyBoosting = false;
-
     private bool _changedRollSpeed;
 
-    [SerializeField] public GameObject pickupEffect;
 
+    [Header("Power Ups")]
+    [SerializeField] private GameObject boostPrefab;
+
+    [Header("UI")]
     [SerializeField] private GameObject boostImage;
     [SerializeField] private GameObject BoostCooldownImage;
 
+    [Header("Particles")]
     [SerializeField] private GameObject speedParticles;
+    [SerializeField] public GameObject pickupEffect;
+
+    [Header("Other")]
+    [SerializeField] private GameObject[] powerUpSpawnLocations;
+    [SerializeField] public Transform powerUpSpawningParent;
 
     private void Awake()
     {
@@ -37,13 +43,11 @@ public class PowerUp : MonoBehaviour
 
     private void Start()
     {
-        
-
+        SpawnPowerUp();
     }
 
     private void Update()
     {
-
         foreach (GameObject user in boostUsers)
         {
             if (_cooldown == false)
@@ -74,6 +78,24 @@ public class PowerUp : MonoBehaviour
                 _changedRollSpeed = true;
             }
         }
+
+    }
+
+    private void SpawnPowerUp()
+    {
+        print("spawning powerup");
+        int rand = Random.Range(0, 6);
+        var newBoost = Instantiate(boostPrefab, powerUpSpawnLocations[rand].transform.position, Quaternion.identity);
+        newBoost.transform.parent = powerUpSpawningParent;
+    }
+
+    private IEnumerator WaitUntilSpawn()
+    {
+        print("Spawning new boost in 10 seconds");
+        yield return new WaitForSeconds(10);
+        SpawnPowerUp();
+
+        yield return null;
     }
 
     private IEnumerator BoostCoolDown(int boostDuration, int boostCooldown)

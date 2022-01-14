@@ -7,6 +7,7 @@ public class PropSpawner : MonoBehaviour
 {
     [SerializeField] private Prop _smallPropPrefab;
     [SerializeField] private int _spawnAmount = 10;
+    [SerializeField] private Transform propSpawningParent;
     private ObjectPool<Prop> _smallPropPool;
 
     PlayerBallController playerBallController;
@@ -22,8 +23,8 @@ public class PropSpawner : MonoBehaviour
             return Instantiate(_smallPropPrefab); // Create
         }, prop =>
         {
+            prop.transform.parent = propSpawningParent;
             prop.gameObject.SetActive(true); // Get
-            prop.transform.parent = null;
             prop.gameObject.tag = "Prop";
             prop.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             prop.gameObject.GetComponent<BoxCollider>().enabled = true;

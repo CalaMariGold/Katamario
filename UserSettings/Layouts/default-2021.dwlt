@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 32
+  controlID: 36
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 33
+  controlID: 37
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,11 +165,11 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 1478
-    height: 583
+    height: 638
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 34
+  controlID: 38
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,9 +188,9 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 385
-    height: 583
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+    height: 638
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -214,7 +214,7 @@ MonoBehaviour:
     x: 385
     y: 0
     width: 1093
-    height: 583
+    height: 638
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
@@ -234,23 +234,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsolePro3Window
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 583
+    y: 638
     width: 1478
-    height: 404
-  m_MinSize: {x: 201, y: 141}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
+    height: 349
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 16}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 0
     width: 442
     height: 987
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -328,7 +328,7 @@ MonoBehaviour:
     x: 385
     y: 73
     width: 1091
-    height: 562
+    height: 617
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -514,9 +514,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 25}
+      snapOffset: {x: -231, y: -197}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 0
+      snapCorner: 3
       id: Scene View/Particles
       index: 10
       layout: 4
@@ -530,9 +530,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.470483, y: -15.7204485, z: 23.040092}
+    m_Target: {x: 9.648767, y: -6.271697, z: 8.852817}
     speed: 2
-    m_Value: {x: -4.470483, y: -15.7204485, z: 23.040092}
+    m_Value: {x: 9.648767, y: -6.271697, z: 8.852817}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -579,13 +579,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.2687343, y: 0.30230147, z: -0.08808178, w: -0.9099079}
+    m_Target: {x: 0.30636096, y: -0.07265529, z: 0.021715768, w: 0.9484241}
     speed: 2
-    m_Value: {x: -0.26746324, y: 0.3025397, z: -0.0876597, w: -0.910631}
+    m_Value: {x: 0.3064965, y: -0.07268744, z: 0.021725375, w: 0.9488437}
   m_Size:
-    m_Target: 19.744562
+    m_Target: 10
     speed: 2
-    m_Value: 19.744562
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -633,7 +633,7 @@ MonoBehaviour:
     x: 0
     y: 73
     width: 384
-    height: 562
+    height: 617
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -641,9 +641,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 4aff0000
-      m_LastClickedID: 65354
-      m_ExpandedIDs: a670fdffe070fdfffa88fdff2292fdff5e9ffdffaedcfdff86e9fdff100affff0cfbffff585a0000f25b000008e4000020e400003ce4000078e400003efa0000
+      m_SelectedIDs: 724e0000
+      m_LastClickedID: 20082
+      m_ExpandedIDs: 6851fdffd652fdff0266fdffda45feff02fbffff7c510000a6540000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -688,9 +688,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 656
+    y: 711
     width: 1477
-    height: 383
+    height: 328
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -708,36 +708,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Prefabs/PowerUps
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets
+  - Assets/Prefabs/PowerUps
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\calam\Documents\Unity Projects\Katamari
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3e5d0000
-    m_LastClickedID: 23870
-    m_ExpandedIDs: 000000003e5d0000525d0000545f0000605f0000009c0000149c00004aad0000d4ad0000f8ad000042ae0000c2ae0000e2ae000000ca9a3b
+    scrollPos: {x: 0, y: 204}
+    m_SelectedIDs: d4a70500
+    m_LastClickedID: 370644
+    m_ExpandedIDs: 000000008c5b00008e5b0000905b0000925b0000945b0000965b0000985b00009a5b0000b25b0000b45b0000b85b0000d45b0000fc5b00003a5c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: BOXOPHOBIC
-      m_OriginalName: BOXOPHOBIC
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 44752
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -751,7 +751,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003e5d0000
+    m_ExpandedIDs: 000000008c5b00008e5b0000905b0000925b0000945b0000965b0000985b00009a5b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000020800000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -828,9 +828,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 656
+    y: 711
     width: 1477
-    height: 383
+    height: 328
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -838,16 +838,650 @@ MonoBehaviour:
   logPanelScroll: {x: 0, y: 0}
   logPanelSelectedIndex: -1
   logPanelAutoScroll: 1
-  currentFrame: 970127
+  currentFrame: 1166878
   logs:
-    lastGrabbedIndex: -1
-    lastGrabbedCount: 0
+    lastGrabbedIndex: 0
+    lastGrabbedCount: 1
     proEntries: []
     newEntries: []
-    resetCompilerErrorEntries: 1
-    compilerErrorEntries: []
+    resetCompilerErrorEntries: 0
+    compilerErrorEntries:
+    - logType: 6
+      ignore: 0
+      processed: 1
+      tempFilterProcessed: 1
+      remoteEndPoint: Local
+      logPanelVisible: 1
+      logPanelIndex: 0
+      logOutputHeight: -1
+      listIndex: 0
+      nativeIndex: 0
+      nativeIdentifier: 1234
+      originalLog: 'Assets\Scripts\PowerUp.cs(85,33): error CS1525: Invalid expression
+        term '')''
+
+'
+      originalStackTrace: 'Assets\Scripts\PowerUp.cs(85,33): error CS1525: Invalid
+        expression term '')''
+
+'
+      nativeFileName: Assets\Scripts\PowerUp.cs
+      nativeFileNamePretty: 
+      nativeLineNumber: 85
+      watchName: 
+      logText: Invalid expression term ')'
+      logTruncatedText: Invalid expression term ')'
+      logColumnText: 
+      fileName: 
+      className: 
+      namespaceName: 
+      lineCount: 1
+      hasSourceCode: 0
+      timeStamp: 14:53:30
+      timeFrame: -1
+      timeStampDateTimeNow: 
+      instanceID: 0
+      collapsedCount: 1
+      cachedHeight: -1
+      cachedHeightLogWidth: 0
+      stackEntries:
+      - fileName: Assets\Scripts\PowerUp.cs
+        fileNameWithoutAssets: Assets\Scripts\PowerUp.cs
+        fileNameWithoutAssetsPlusLineNumber: Assets\Scripts\PowerUp.cs:85
+        fileNameWithoutPath: PowerUp.cs
+        fileNameWithoutPathPlusLineNumber: PowerUp.cs:85
+        fileNamePretty: PowerUp
+        instanceID: -1
+        className: Compiler
+        methodName: Compiler
+        namespaceName: None
+        lineNumberString: 85
+        charNumber: 33
+        stackLabel: Compiler Error
+        stackLabel2: ' at Assets\Scripts\PowerUp.cs:85 column 33'
+        stackLabel1Content:
+          m_Text: 
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel1Width: 0
+        stackLabel1Height: 0
+        stackLabel2Content:
+          m_Text: 
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel2Width: 0
+        stackLabel2Height: 0
+        stackSourceLineHeight: 0
+        sourceCode: []
+        sourceCodeUpdated: 0
+        showSource: 1
+      ignoredStackEntries: []
+      lastMatchedCount: 0
+      belongsToFilters:
+      - name: Error
+        isEnabled: 1
+        collapsed: 1
+        itemGUID: cab1ad14-bb5f-4802-93df-50ab5d2e1a7f
+        filterName: 
+        mainColor: {r: 1, g: 0, b: 0, a: 0.7}
+        isStandardFilter: 1
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 1
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 0, b: 0, a: 0.7}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 1
+        useIconTexture: 0
+        filterFormatVersion: 1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list:
+          - name: 
+            isEnabled: 1
+            collapsed: 0
+            itemGUID: 59de4f05-b98d-436d-9951-4100341b74bb
+            searchString: <Any>
+            searchType: 1
+            removeSearchStringFromLog: 0
+            logTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 874597fb-80d4-432c-a5ea-1da221abd5c6
+                logType: 3
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 9ccddd11-7dda-4ab4-9337-afe4d756e80a
+                logType: 6
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            columnTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 5632aeba-914e-4dff-afc0-6166f8e90cf9
+                columnType: 1
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            sourceCodeList:
+              list: []
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 3
+          iconType2: 1
+          iconText: X
+          useIconTextFirstLetter: 0
+          useIconLogColor: 0
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 7
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
+      belongsToStandardFilters: []
+      assignedTempFilter:
+        name: 
+        isEnabled: 1
+        collapsed: 0
+        itemGUID: 
+        filterName: 
+        mainColor: {r: 1, g: 1, b: 1, a: 1}
+        isStandardFilter: 0
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 0
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 0
+        useIconTexture: 0
+        filterFormatVersion: -1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list: []
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
     timeFrames: 
-    _filteredEntries: []
+    _filteredEntries:
+    - logType: 6
+      ignore: 0
+      processed: 1
+      tempFilterProcessed: 1
+      remoteEndPoint: Local
+      logPanelVisible: 1
+      logPanelIndex: 0
+      logOutputHeight: -1
+      listIndex: 0
+      nativeIndex: 0
+      nativeIdentifier: 1234
+      originalLog: 'Assets\Scripts\PowerUp.cs(85,33): error CS1525: Invalid expression
+        term '')''
+
+'
+      originalStackTrace: 'Assets\Scripts\PowerUp.cs(85,33): error CS1525: Invalid
+        expression term '')''
+
+'
+      nativeFileName: Assets\Scripts\PowerUp.cs
+      nativeFileNamePretty: 
+      nativeLineNumber: 85
+      watchName: 
+      logText: Invalid expression term ')'
+      logTruncatedText: Invalid expression term ')'
+      logColumnText: 
+      fileName: 
+      className: 
+      namespaceName: 
+      lineCount: 1
+      hasSourceCode: 0
+      timeStamp: 14:53:30
+      timeFrame: -1
+      timeStampDateTimeNow: 
+      instanceID: 0
+      collapsedCount: 1
+      cachedHeight: -1
+      cachedHeightLogWidth: 0
+      stackEntries:
+      - fileName: Assets\Scripts\PowerUp.cs
+        fileNameWithoutAssets: Assets\Scripts\PowerUp.cs
+        fileNameWithoutAssetsPlusLineNumber: Assets\Scripts\PowerUp.cs:85
+        fileNameWithoutPath: PowerUp.cs
+        fileNameWithoutPathPlusLineNumber: PowerUp.cs:85
+        fileNamePretty: PowerUp
+        instanceID: -1
+        className: Compiler
+        methodName: Compiler
+        namespaceName: None
+        lineNumberString: 85
+        charNumber: 33
+        stackLabel: Compiler Error
+        stackLabel2: ' at Assets\Scripts\PowerUp.cs:85 column 33'
+        stackLabel1Content:
+          m_Text: 
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel1Width: 0
+        stackLabel1Height: 0
+        stackLabel2Content:
+          m_Text: 
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        stackLabel2Width: 0
+        stackLabel2Height: 0
+        stackSourceLineHeight: 0
+        sourceCode: []
+        sourceCodeUpdated: 0
+        showSource: 1
+      ignoredStackEntries: []
+      lastMatchedCount: 0
+      belongsToFilters:
+      - name: Error
+        isEnabled: 1
+        collapsed: 1
+        itemGUID: cab1ad14-bb5f-4802-93df-50ab5d2e1a7f
+        filterName: 
+        mainColor: {r: 1, g: 0, b: 0, a: 0.7}
+        isStandardFilter: 1
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 1
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 0, b: 0, a: 0.7}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 1
+        useIconTexture: 0
+        filterFormatVersion: 1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list:
+          - name: 
+            isEnabled: 1
+            collapsed: 0
+            itemGUID: 59de4f05-b98d-436d-9951-4100341b74bb
+            searchString: <Any>
+            searchType: 1
+            removeSearchStringFromLog: 0
+            logTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 874597fb-80d4-432c-a5ea-1da221abd5c6
+                logType: 3
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 9ccddd11-7dda-4ab4-9337-afe4d756e80a
+                logType: 6
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            columnTypeList:
+              list:
+              - name: 
+                isEnabled: 1
+                collapsed: 0
+                itemGUID: 5632aeba-914e-4dff-afc0-6166f8e90cf9
+                columnType: 1
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+            sourceCodeList:
+              list: []
+              selectionList: 0
+              collapsable: 1
+              collapsed: 0
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 3
+          iconType2: 1
+          iconText: X
+          useIconTextFirstLetter: 0
+          useIconLogColor: 0
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 7
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
+      belongsToStandardFilters: []
+      assignedTempFilter:
+        name: 
+        isEnabled: 1
+        collapsed: 0
+        itemGUID: 
+        filterName: 
+        mainColor: {r: 1, g: 1, b: 1, a: 1}
+        isStandardFilter: 0
+        isTempFilter: 0
+        filterOnly: 0
+        useAdvancedColors: 0
+        customTextColor: {r: 1, g: 1, b: 1, a: 1}
+        customBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
+        swallowStandard: 1
+        standardCanSwallow: 0
+        overrideStandardColors: 1
+        overrideStandardIcon: 1
+        collapseIconBackground: 0
+        collapseIconSymbol: 0
+        collapseIconLetter: 0
+        collapseIconTexture: 0
+        useIconBackground: 1
+        useIconSymbol: 0
+        useIconLetter: 0
+        useIconTexture: 0
+        filterFormatVersion: -1
+        iconColorize: 0
+        useAndOpForSearchList: 0
+        searchList:
+          list: []
+          selectionList: 0
+          collapsable: 1
+          collapsed: 0
+        iconLetter:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconSymbol:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconBackground:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        iconTexture:
+          name: 
+          isEnabled: 1
+          collapsed: 0
+          itemGUID: 
+          iconType: 1
+          iconType2: 1
+          iconText: A
+          useIconTextFirstLetter: 1
+          useIconLogColor: 1
+          iconColor: {r: 1, g: 1, b: 1, a: 1}
+          iconBuiltInID: BACKGROUNDS_ECPBGROUNDEDSQUARE
+          iconTextureGUID: 
+          useIconShadow: 1
+          iconOffset: {x: 0, y: 0}
+          iconShadowOffset: {x: 0.5, y: 0.5}
+          iconSize: 13
+        showInToolbar: 1
+        hideLabelInToolbar: 0
+        hideWhenNoMatches: 0
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -879,11 +1513,11 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: 249
+    m_CachedPref: -249
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 315
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -912,7 +1546,7 @@ MonoBehaviour:
     x: 385
     y: 73
     width: 1091
-    height: 562
+    height: 617
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -929,7 +1563,7 @@ MonoBehaviour:
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 0
+  m_EnterPlayModeBehavior: 2
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
@@ -952,7 +1586,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -962,22 +1596,22 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 1091
-      height: 541
-    m_Scale: {x: 0.5009259, y: 0.5009259}
-    m_Translation: {x: 545.5, y: 270.5}
+      height: 596
+    m_Scale: {x: 0.55185187, y: 0.55185187}
+    m_Translation: {x: 545.5, y: 298}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1088.9834
+      x: -988.4899
       y: -540
-      width: 2177.9668
+      width: 1976.9799
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.5009259
-  m_LastWindowPixelSize: {x: 1091, y: 562}
+  m_defaultScale: 0.55185187
+  m_LastWindowPixelSize: {x: 1091, y: 617}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
