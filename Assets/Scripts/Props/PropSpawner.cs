@@ -31,6 +31,7 @@ public class PropSpawner : MonoBehaviour
             prop.transform.position = spawnRegion.SpawnPoint;
             prop.transform.rotation = Quaternion.identity;
             playerBallController.UpdateCanCollectMesh();
+            prop.SpawnParticle();
             prop.Init(ReleaseProp);
         }, prop =>
         {

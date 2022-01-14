@@ -6,10 +6,12 @@ using UnityEngine;
 public class Prop : MonoBehaviour
 {
     private Action<Prop> _releaseAction;
+    private GameObject spawnRegion;
+    [SerializeField] private ParticleSystem spawnParticle;
 
-    public void Init(Action<Prop> releaseAction)
+    private void Awake()
     {
-        _releaseAction = releaseAction;
+        spawnRegion = GameObject.FindGameObjectWithTag("PropSpawnRegion");
     }
 
     void Update()
@@ -17,6 +19,22 @@ public class Prop : MonoBehaviour
         // Aborb this prop into the parent if it's been collected
         if(this.gameObject.tag == "Collected")
             StartCoroutine(AbsorbPropOverTime(this.transform, this.GetComponentInParent<SphereCollider>().transform));
+    }
+
+    public void Init(Action<Prop> releaseAction)
+    {
+        _releaseAction = releaseAction;
+    }
+    public void SpawnParticle()
+    {
+        spawnParticle.Play();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Move the prop to another position if it's inside another prop
+        if(collision.gameObject.tag == "Prop")
+            this.transform.position = spawnRegion.GetComponent<SpawnRegion>().SpawnPoint;
     }
 
     public IEnumerator AbsorbPropOverTime(Transform child, Transform absorber)
