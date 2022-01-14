@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     private GameObject[] _aiObjects;
     private GameObject _player;
 
+    private float _playerScore;
+
     [SerializeField] bool aiChasingPlayer = false;
 
     // For debugging and testing, adjust in inspector
@@ -88,17 +90,19 @@ public class GameManager : MonoBehaviour
 
     private void LoseScreen()
     {
+        _playerScore = (Mathf.Round((_playerBallController.playerSize - 1) * 100));
         _playerCurrentScoreText.GetComponentInParent<Transform>().gameObject.SetActive(false);
 
         _gameOverParentObject.SetActive(true);
-        _gameOverStatsText.text = "Score: " + (Mathf.Round((_playerBallController.playerSize - 1) * 100));
+        _gameOverStatsText.text = "Score: " + _playerScore;
     }
 
     private void WinScreen()
     {
+        _playerScore = (Mathf.Round((_playerBallController.playerSize - 1) * 100));
         _playerCurrentScoreText.GetComponentInParent<Transform>().gameObject.SetActive(false);
 
         _winParentObject.SetActive(true);
-        _winStatsText.text = "Score: " + (Mathf.Round((_playerBallController.playerSize - 1) * 100));
+        _winStatsText.text = "Score: " + _playerScore;
     }
 }

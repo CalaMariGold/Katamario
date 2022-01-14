@@ -13,8 +13,10 @@ public class PowerUp : MonoBehaviour
 
     static List<GameObject> boostUsers = new List<GameObject>();
 
-    bool cooldown = false;
-    bool alreadyBoosting = false;
+    private bool _cooldown = false;
+    private bool _alreadyBoosting = false;
+
+    private bool _changedRollSpeed;
 
     [SerializeField] public GameObject pickupEffect;
 
@@ -44,7 +46,7 @@ public class PowerUp : MonoBehaviour
 
         foreach (GameObject user in boostUsers)
         {
-            if (cooldown == false)
+            if (_cooldown == false)
             {
                 boostImage.SetActive(true);
                 BoostCooldownImage.SetActive(false);
@@ -56,23 +58,28 @@ public class PowerUp : MonoBehaviour
             }
 
 
-            if (!alreadyBoosting && Input.GetKeyDown(KeyCode.Space))
+            if (!_alreadyBoosting && Input.GetKeyDown(KeyCode.Space))
             {
-                if (cooldown == false) {
+                if (_cooldown == false)
+                {
+                    _changedRollSpeed = false;
                     StartCoroutine(BoostCoolDown(3, 5));
-                    user.GetComponent<PlayerBallController>().ChangeRollSpeed(600);
+                    user.GetComponent<PlayerBallController>().ChangeRollSpeed(500);
                 }
 
             }
-            else if (cooldown == true)
-                user.GetComponent<PlayerBallController>().rollSpeed = 400;
+            else if (_cooldown == true && _changedRollSpeed == false)
+            {
+                user.GetComponent<PlayerBallController>().ChangeRollSpeed(-500);
+                _changedRollSpeed = true;
+            }
         }
     }
 
     private IEnumerator BoostCoolDown(int boostDuration, int boostCooldown)
     {
         // Player is currently boosting
-        alreadyBoosting = true;
+        _alreadyBoosting = true;
         boostImage.GetComponent<Image>().color = new Color32(160, 160, 160, 255);
         speedParticles.SetActive(true);
         yield return new WaitForSeconds(boostDuration);
@@ -80,12 +87,12 @@ public class PowerUp : MonoBehaviour
         // Player is no longer boosting, starting cooldown
         boostImage.GetComponent<Image>().color = new Color(255, 255, 255, 100);
         speedParticles.SetActive(false);
-        cooldown = true;
-        alreadyBoosting = false;
+        _cooldown = true;
+        _alreadyBoosting = false;
         yield return new WaitForSeconds(boostCooldown);
 
         // Boost is available again
-        cooldown = false;
+        _cooldown = false;
 
         yield return null;
     }

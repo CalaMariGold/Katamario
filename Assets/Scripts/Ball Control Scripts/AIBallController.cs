@@ -54,6 +54,11 @@ public class AIBallController : MonoBehaviour
         DetermineAIState();
     }
 
+    public void ChangeRollSpeed(float speed)
+    {
+        rollSpeed += speed;
+    }
+
     private void DetermineAIState()
     {
         // Increase AISearchRadius based on their size
@@ -185,6 +190,8 @@ public class AIBallController : MonoBehaviour
             playerBallController.UpdateCanCollectMesh();
             collision.transform.parent = transform;
             AIsize += collectedPropSize;
+            ChangeRollSpeed(-collectedPropSize * 4);
+            
 
             // Increase the scale of the AI depending on the scale of the prop
             // No scale overtime, but possibly should add later
@@ -216,6 +223,7 @@ public class AIBallController : MonoBehaviour
             playerBallController.UpdateCanCollectMesh();
             collision.transform.parent = transform;
             AIsize += playerBallController.playerSize;
+            ChangeRollSpeed(-playerBallController.playerSize * 4);
 
             // Increase the scale of the AI depending on the scale of the prop
             // No scale overtime, but possibly should add later
@@ -252,6 +260,8 @@ public class AIBallController : MonoBehaviour
             playerBallController.UpdateCanCollectMesh();
             collision.transform.parent = transform;
             AIsize += collectedAISize;
+            ChangeRollSpeed(-collectedAISize*4);
+
 
             // Increase the scale of the AI depending on the scale of the prop
             // No scale overtime, but possibly should add later

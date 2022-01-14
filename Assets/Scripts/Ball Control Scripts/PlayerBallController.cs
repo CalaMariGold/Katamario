@@ -108,6 +108,7 @@ public class PlayerBallController : MonoBehaviour
             UpdateCanCollectMesh();
             collision.transform.parent = transform;
             playerSize += collectedPropSize;
+            ChangeRollSpeed(-collectedPropSize * 3);
 
             // Here, we increase the player's scale and FOV overtime depending on the scale of the prop it collected
             StartCoroutine(ScalePlayerOverTime(0.1f));
@@ -145,7 +146,8 @@ public class PlayerBallController : MonoBehaviour
             UpdateCanCollectMesh();
             collision.transform.parent = transform;
             playerSize += collectedAISize;
-                
+            ChangeRollSpeed(-collectedAISize * 3);
+
             // Here, we increase the player's scale and FOV overtime depending on the **scale** of the AI it collected
             StartCoroutine(ScalePlayerOverTime(0.1f));
             IEnumerator ScalePlayerOverTime(float time)
