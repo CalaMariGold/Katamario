@@ -11,6 +11,10 @@ public class CollectionController : MonoBehaviour
     private GameObject _playerObject;
     private GameObject[] _AIobjects;
 
+    public PropPooler propPooler;
+
+    private Vector3 originalChildScale;
+
     private void Start()
     {
         // Check if the player exists, then assign it to player var
@@ -24,6 +28,8 @@ public class CollectionController : MonoBehaviour
             _AIobjects = GameObject.FindGameObjectsWithTag(_AItag);
         else
             _AIobjects = null;
+
+        propPooler = PropPooler.Instance;
     }
 
     private void Update()
@@ -66,7 +72,11 @@ public class CollectionController : MonoBehaviour
         // Destroy and exit when child object reaches the center
         if (child != null && child.transform.position == absorber.transform.position)
         {
-            Object.Destroy(child.gameObject);
+            if (child.GetComponent<Prop>() != null)
+            {
+                propPooler.AddBackToQueue(child.gameObject, "SmallProp");
+            }
+            else Object.Destroy(child.gameObject);
             yield return null;
         }
     }

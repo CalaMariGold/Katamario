@@ -206,6 +206,7 @@ public class AIBallController : MonoBehaviour
             // Disable the prop's collider and change it's material
             collision.transform.GetComponent<BoxCollider>().enabled = false;
             collision.transform.GetComponent<MeshRenderer>().material.color = Color.green;
+            collision.gameObject.tag = "Collected";
 
             // Check if player mesh color needs to change
             gameManager.UpdatePlayerMeshColor();
@@ -239,7 +240,7 @@ public class AIBallController : MonoBehaviour
             player = null;
             collision.transform.GetComponent<SphereCollider>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
-            collision.transform.tag = "Collected";
+            collision.gameObject.tag = "Collected";
 
             // Check if player mesh color needs to change
             gameManager.UpdatePlayerMeshColor();
@@ -277,7 +278,7 @@ public class AIBallController : MonoBehaviour
             collision.gameObject.GetComponent<AIBallController>().AIgameObject = null;
             collision.transform.GetComponent<SphereCollider>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
-            collision.transform.tag = "Collected";
+            collision.gameObject.tag = "Collected";
 
             // Check if player mesh color needs to change
             gameManager.UpdatePlayerMeshColor();

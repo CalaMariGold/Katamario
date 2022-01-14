@@ -25,6 +25,8 @@ public class PlayerBallController : MonoBehaviour
 
     public static event Action WinGame;
 
+    public PropPooler propPooler;
+
     private void Awake()
     {
         // Cache all our variables
@@ -132,6 +134,8 @@ public class PlayerBallController : MonoBehaviour
             // Disable the prop's collider and change it's material
             collision.transform.GetComponent<BoxCollider>().enabled = false;
             collision.transform.GetComponent<MeshRenderer>().material.color = Color.green;
+            collision.gameObject.tag = "Collected";
+            propPooler.RemoveFromQueue(collision.gameObject, "SmallProp");
         }
         #endregion
 
@@ -171,7 +175,7 @@ public class PlayerBallController : MonoBehaviour
             collision.transform.GetComponent<SphereCollider>().enabled = false;
             collision.transform.GetComponent<AIBallController>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
-            collision.transform.tag = "Collected";
+            collision.gameObject.tag = "Collected";
 
             // If there are no other AI, invoke the WinGame function in the GameManager
             if (GameObject.FindGameObjectWithTag(_AItag) == null)
