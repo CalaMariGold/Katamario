@@ -5,16 +5,11 @@ using UnityEngine.UI;
 
 public class PowerUp : MonoBehaviour
 {
-    private const string _playerTag = "Player";
-    private const string _boostTag = "BoostPowerUp";
-
     static List<GameObject> boostUsers = new List<GameObject>();
-
     private GameObject player;
     private bool _cooldown = false;
     private bool _alreadyBoosting = false;
     private bool _changedRollSpeed;
-
 
     [Header("Power Ups")]
     [SerializeField] private GameObject boostPrefab;
@@ -30,6 +25,9 @@ public class PowerUp : MonoBehaviour
     [Header("Other")]
     [SerializeField] private GameObject[] powerUpSpawnLocations;
     [SerializeField] public Transform powerUpSpawningParent;
+    private const string _playerTag = "Player";
+    private const string _boostTag = "BoostPowerUp";
+
 
     private void Awake()
     {
@@ -83,7 +81,6 @@ public class PowerUp : MonoBehaviour
 
     private void SpawnPowerUp()
     {
-        print("spawning powerup");
         int rand = Random.Range(0, 6);
         var newBoost = Instantiate(boostPrefab, powerUpSpawnLocations[rand].transform.position, Quaternion.identity);
         newBoost.transform.parent = powerUpSpawningParent;

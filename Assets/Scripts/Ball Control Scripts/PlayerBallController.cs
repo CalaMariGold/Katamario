@@ -6,24 +6,29 @@ using Cinemachine;
 
 public class PlayerBallController : MonoBehaviour
 {
-    private GameObject _player;
-    private Rigidbody _playerRigidbody;
     private const string _AItag = "AI";
     private const string _propTag = "Prop";
     private const string _boostTag = "BoostPowerUp";
 
-    public float rollSpeed;
-
-    [SerializeField] private Camera _camera;
-    [SerializeField] private CinemachineFreeLook _cineCamera;
-    [SerializeField] private PowerUp _powerUp;
-
-
-    public float playerSize = 1;
+    private GameObject _player;
+    private Rigidbody _playerRigidbody;
     private GameObject[] _props;
     private GameObject[] _AIobjects;
 
+    [Header("Camera")]
+    [SerializeField] private Camera _camera;
+    [SerializeField] private CinemachineFreeLook _cineCamera;
+
+    [Header("Scripts")]
+    [SerializeField] private PowerUp _powerUp;
+
+    // Public Vars
+    [Header("Player Settings")]
+    public float playerSize = 1;
+    public float rollSpeed;
     public static event Action WinGame;
+
+
 
     private void Awake()
     {
@@ -81,7 +86,7 @@ public class PlayerBallController : MonoBehaviour
         {
             if (_AIobjects[i] != null)
             {
-                if (_AIobjects[i].GetComponent<AIBallController>().AIsize < playerSize)
+                if (_AIobjects[i].GetComponent<AIBallController>().aiSize < playerSize)
                     _AIobjects[i].GetComponent<MeshRenderer>().material.color = Color.red;
                 else _AIobjects[i].GetComponent<MeshRenderer>().material.color = Color.white;
             }
@@ -166,10 +171,10 @@ public class PlayerBallController : MonoBehaviour
 
         #region Collect AI
         // If player collides with and collects an AI
-        if (collision.gameObject.CompareTag(_AItag) && collision.gameObject.GetComponent<AIBallController>().AIsize < playerSize)
+        if (collision.gameObject.CompareTag(_AItag) && collision.gameObject.GetComponent<AIBallController>().aiSize < playerSize)
         {
             // Store the size of the collected AI
-            float collectedAISize = collision.gameObject.GetComponent<AIBallController>().AIsize;
+            float collectedAISize = collision.gameObject.GetComponent<AIBallController>().aiSize;
 
             // Update meshes, stick the prop to the player, increase player's size number
             UpdateCanCollectMesh();

@@ -10,38 +10,37 @@ public class AIBallController : MonoBehaviour
     private const string _AItag = "AI";
     private const string _propTag = "Prop";
 
+    [Header("Scripts")]
+    [SerializeField] private GameManager _gameManager;
+
+    [Header("Player")]
+    [SerializeField] private GameObject _player;
+    [SerializeField] private PlayerBallController _playerBallController;
+
+    [Header("AI")]
+    [SerializeField] private Rigidbody _aiRigidbody;
+    [SerializeField] private GameObject _aiGameObject;
+    [SerializeField] private float _rollSpeed;
+    [Tooltip("This is (aiSize/2) + _aiSearchRadius")]
+    [SerializeField] private float _aiSearchRadius;
+    private Vector3 _aiMovement;
+    private float _aiTotalSearchRadius;
+
+    // Public Vars
     public static event Action GameOver;
-
-    // Player Variables
-    [SerializeField] private GameObject player;
-    [SerializeField] private PlayerBallController playerBallController;
-
-
-    // AI Variables
-    [SerializeField] private Rigidbody AIrigidbody;
-    [SerializeField] private GameObject AIgameObject;
-    [SerializeField] private float rollSpeed;
-    public float AIsize = 1;
-    private Vector3 AImovement;
-
-    // AITotalSearchRadius is the (AIsize/2) + AISearchRadius
-    [SerializeField] private float AISearchRadius;
-    private float AITotalSearchRadius;
     public bool chasingPlayer = false;
-
-    // Other Script Variables
-    [SerializeField] private GameManager gameManager;
+    public float aiSize = 1;
 
 
     private void Awake()
     {
         // Check if the player exists, then assign it to player var
         if (GameObject.FindGameObjectWithTag(_playerTag) != null)
-            player = GameObject.FindGameObjectWithTag(_playerTag);
+            _player = GameObject.FindGameObjectWithTag(_playerTag);
         else
-            player = null;
+            _player = null;
 
-        playerBallController = player.GetComponent<PlayerBallController>();
+        _playerBallController = _player.GetComponent<PlayerBallController>();
     }
 
     private void FixedUpdate()
@@ -61,31 +60,31 @@ public class AIBallController : MonoBehaviour
 
     public void ChangeRollSpeed(float speed)
     {
-        rollSpeed += speed;
+        _rollSpeed += speed;
     }
 
     private void DetermineAIState()
     {
-        // Increase AISearchRadius based on their size
-        AITotalSearchRadius = (AIsize/2) + AISearchRadius;
+        // Increase _aiSearchRadius based on their size
+        _aiTotalSearchRadius = (aiSize / 2) + _aiSearchRadius;
 
         // First, we check if AI size > player size, also make sure neither are null
-        if (player != null && AIgameObject != null &&
-            AIsize > playerBallController.playerSize)
+        if (_player != null && _aiGameObject != null &&
+            aiSize > _playerBallController.playerSize)
         {
-            // Then check if the player is within the AISearchRadius
-            if (Vector3.Distance(AIgameObject.transform.position, player.transform.position) <= AITotalSearchRadius)
+            // Then check if the player is within the _aiSearchRadius
+            if (Vector3.Distance(_aiGameObject.transform.position, _player.transform.position) <= _aiTotalSearchRadius)
             {
                 // Requirements met, chase the player and set their color
-                player.GetComponent<MeshRenderer>().material.color = Color.red;
+                _player.GetComponent<MeshRenderer>().material.color = Color.red;
 
                 chasingPlayer = true;
 
                 // Move AI towards player
-                AImovement = (player.transform.position - this.transform.position).normalized;
-                AIrigidbody.AddForce(AImovement * rollSpeed * Time.fixedDeltaTime);
+                _aiMovement = (_player.transform.position - this.transform.position).normalized;
+                _aiRigidbody.AddForce(_aiMovement * _rollSpeed * Time.fixedDeltaTime);
             }
-            // If the player is outside the AISearchRadius
+            // If the player is outside the _aiSearchRadius
             else
             {
                 ChaseAI();
@@ -129,9 +128,9 @@ public class AIBallController : MonoBehaviour
                 closest = gos[i];
                 distance = curDistance;
             }
-            AImovement = (closest.transform.position - this.transform.position).normalized;
+            _aiMovement = (closest.transform.position - this.transform.position).normalized;
         }
-        AIrigidbody.AddForce(AImovement * rollSpeed * Time.fixedDeltaTime);
+        _aiRigidbody.AddForce(_aiMovement * _rollSpeed * Time.fixedDeltaTime);
 
     }
 
@@ -162,19 +161,19 @@ public class AIBallController : MonoBehaviour
                 distance = curDistance;
             }
             // Null check, as well as check if AI > enemy AI
-            if (go != null && AIgameObject != null && AIsize > go.GetComponent<AIBallController>().AIsize)
+            if (go != null && _aiGameObject != null && aiSize > go.GetComponent<AIBallController>().aiSize)
             { 
                 // Check if the AI is close enough to the enemy
-                if (Vector3.Distance(AIgameObject.transform.position, go.transform.position) <= AITotalSearchRadius)
+                if (Vector3.Distance(_aiGameObject.transform.position, go.transform.position) <= _aiTotalSearchRadius)
                 {
                     chasingAI = true;
-                    AImovement = (closest.transform.position - this.transform.position).normalized;
+                    _aiMovement = (closest.transform.position - this.transform.position).normalized;
                 }
                 else chasingAI = false;
             }
             else chasingAI = false;
             if (chasingAI) 
-                AIrigidbody.AddForce(AImovement * rollSpeed * Time.fixedDeltaTime);
+                _aiRigidbody.AddForce(_aiMovement * _rollSpeed * Time.fixedDeltaTime);
         }
     }
 
@@ -206,24 +205,24 @@ public class AIBallController : MonoBehaviour
         
         #region Collect Prop
         // If AI collides with and collects a prop
-        if (AIgameObject != null && collision.gameObject.CompareTag(_propTag) && collision.transform.localScale.magnitude * 5 <= AIsize)
+        if (_aiGameObject != null && collision.gameObject.CompareTag(_propTag) && collision.transform.localScale.magnitude * 5 <= aiSize)
         {
             // Store the size of the collected prop
             float collectedPropSize = collision.transform.localScale.magnitude;
 
             // Update meshes, stick the prop to the AI, increase AI's size number, decrease speed
-            playerBallController.UpdateCanCollectMesh();
+            _playerBallController.UpdateCanCollectMesh();
             collision.transform.parent = transform;
-            AIsize += collectedPropSize;
+            aiSize += collectedPropSize;
             ChangeRollSpeed(-collectedPropSize * 4);
             
 
             // Increase the scale of the AI depending on the scale of the prop
             // No scale overtime, but possibly should add later
-            AIgameObject.transform.localScale += collision.transform.localScale / 10;
+            _aiGameObject.transform.localScale += collision.transform.localScale / 10;
 
             // Ensure child props' scale don't increase
-            foreach (Transform child in AIgameObject.transform)
+            foreach (Transform child in _aiGameObject.transform)
             {
                 child.transform.localScale -= collision.transform.localScale / 1000;
             }
@@ -234,41 +233,41 @@ public class AIBallController : MonoBehaviour
             collision.gameObject.tag = "Collected";
 
             // Check if player mesh color needs to change
-            gameManager.UpdatePlayerMeshColor();
+            _gameManager.UpdatePlayerMeshColor();
         }
         #endregion
 
         #region Collect Player
         // If AI collides with and collects a player
-        if (collision.gameObject.CompareTag(_playerTag) && playerBallController.playerSize < AIsize)
+        if (collision.gameObject.CompareTag(_playerTag) && _playerBallController.playerSize < aiSize)
         {
             // Store the size of the collected player
             float collectedPlayerSize = collision.gameObject.GetComponent<PlayerBallController>().playerSize;
 
             // Update meshes, stick the prop to the AI, increase AI's size number
-            playerBallController.UpdateCanCollectMesh();
+            _playerBallController.UpdateCanCollectMesh();
             collision.transform.parent = transform;
-            AIsize += playerBallController.playerSize;
-            ChangeRollSpeed(-playerBallController.playerSize * 4);
+            aiSize += _playerBallController.playerSize;
+            ChangeRollSpeed(-_playerBallController.playerSize * 4);
 
             // Increase the scale of the AI depending on the scale of the prop
             // No scale overtime, but possibly should add later
-            AIgameObject.transform.localScale += collision.transform.localScale / 10;
+            _aiGameObject.transform.localScale += collision.transform.localScale / 10;
 
             // Ensure child props' scale don't increase
-            foreach (Transform child in AIgameObject.transform)
+            foreach (Transform child in _aiGameObject.transform)
             {
                 child.transform.localScale -= collision.transform.localScale / 700;
             }
 
             // Disable the players's components and change its tag
-            player = null;
+            _player = null;
             collision.transform.GetComponent<SphereCollider>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
             collision.gameObject.tag = "Collected";
 
             // Check if player mesh color needs to change
-            gameManager.UpdatePlayerMeshColor();
+            _gameManager.UpdatePlayerMeshColor();
 
             // Invoke the GameOver function in GameManager
             GameOver?.Invoke();
@@ -277,36 +276,36 @@ public class AIBallController : MonoBehaviour
 
         #region Collect Other AI
         // If AI collides with and collects another AI
-        if (collision.gameObject.CompareTag(_AItag) && collision.gameObject.GetComponent<AIBallController>().AIsize < AIsize)
+        if (collision.gameObject.CompareTag(_AItag) && collision.gameObject.GetComponent<AIBallController>().aiSize < aiSize)
         {
             // Store the size of the collected AI
-            float collectedAISize = collision.gameObject.GetComponent<AIBallController>().AIsize;
+            float collectedaiSize = collision.gameObject.GetComponent<AIBallController>().aiSize;
 
             // Update meshes, stick the prop to the AI, increase AI's size number
-            playerBallController.UpdateCanCollectMesh();
+            _playerBallController.UpdateCanCollectMesh();
             collision.transform.parent = transform;
-            AIsize += collectedAISize;
-            ChangeRollSpeed(-collectedAISize*4);
+            aiSize += collectedaiSize;
+            ChangeRollSpeed(-collectedaiSize*4);
 
 
             // Increase the scale of the AI depending on the scale of the prop
             // No scale overtime, but possibly should add later
-            AIgameObject.transform.localScale += collision.transform.localScale / 10;
+            _aiGameObject.transform.localScale += collision.transform.localScale / 10;
 
             // Ensure child props' scale don't increase
-            foreach (Transform child in AIgameObject.transform)
+            foreach (Transform child in _aiGameObject.transform)
             {
                 child.transform.localScale -= collision.transform.localScale / 700;
             }
 
             // Disable the AI's components and change its tag
-            collision.gameObject.GetComponent<AIBallController>().AIgameObject = null;
+            collision.gameObject.GetComponent<AIBallController>()._aiGameObject = null;
             collision.transform.GetComponent<SphereCollider>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
             collision.gameObject.tag = "Collected";
 
             // Check if player mesh color needs to change
-            gameManager.UpdatePlayerMeshColor();
+            _gameManager.UpdatePlayerMeshColor();
         }
         #endregion
 

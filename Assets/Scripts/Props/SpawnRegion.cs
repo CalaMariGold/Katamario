@@ -24,7 +24,7 @@ public class SpawnRegion : SpawnZone
 		}
 	}
 
-	void OnDrawGizmos()
+	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.cyan;
 		Gizmos.matrix = transform.localToWorldMatrix;

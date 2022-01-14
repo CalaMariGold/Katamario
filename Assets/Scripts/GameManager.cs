@@ -5,6 +5,15 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    // Scripts
+    private PlayerBallController _playerBallController;
+
+    // Objects
+    private GameObject[] _aiObjects;
+    private GameObject _player;
+
+    // Other
+    private float _playerScore;
 
     [Header("Game Over")]
     [SerializeField] private TMP_Text _gameOverStatsText;
@@ -17,20 +26,12 @@ public class GameManager : MonoBehaviour
     [Header("Gameplay UI")]
     [SerializeField] private TMP_Text _playerCurrentScoreText;
 
-    [Space]
-
-    private PlayerBallController _playerBallController;
-
-
-    private GameObject[] _aiObjects;
-    private GameObject _player;
-
-    private float _playerScore;
-
+    [Header("AI")]
     [SerializeField] bool aiChasingPlayer = false;
 
-    // For debugging and testing, adjust in inspector
+    [Header("Debugging/Testing")]
     [SerializeField] private float timeScale = 1;
+
 
     private void Awake()
     {

@@ -5,33 +5,37 @@ using UnityEngine.Pool;
 
 public class PropSpawner : MonoBehaviour
 {
+    [Header("Prop")]
     [SerializeField] private Prop _smallPropPrefab;
+    [Range(0, 100)]
     [SerializeField] private int _spawnAmount = 10;
-    [SerializeField] private Transform propSpawningParent;
+
+    [Header("Spawning")]
+    [SerializeField] private Transform _propParent;
+    [SerializeField] private SpawnRegion _spawnRegion;
+
     private ObjectPool<Prop> _smallPropPool;
+    private PlayerBallController _playerBallController;
 
-    PlayerBallController playerBallController;
 
-    public SpawnRegion spawnRegion;
-
-    void Start()
+    private void Start()
     {
-        playerBallController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBallController>();
+        _playerBallController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBallController>();
 
         _smallPropPool = new ObjectPool<Prop>(() =>
         {
             return Instantiate(_smallPropPrefab); // Create
         }, prop =>
         {
-            prop.transform.parent = propSpawningParent;
+            prop.transform.parent = _propParent;
             prop.gameObject.SetActive(true); // Get
             prop.gameObject.tag = "Prop";
             prop.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             prop.gameObject.GetComponent<BoxCollider>().enabled = true;
             prop.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-            prop.transform.position = spawnRegion.SpawnPoint;
+            prop.transform.position = _spawnRegion.SpawnPoint;
             prop.transform.rotation = Quaternion.identity;
-            playerBallController.UpdateCanCollectMesh();
+            _playerBallController.UpdateCanCollectMesh();
             prop.SpawnParticle();
             prop.Init(ReleaseProp);
         }, prop =>
