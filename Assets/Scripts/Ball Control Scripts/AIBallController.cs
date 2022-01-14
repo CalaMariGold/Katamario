@@ -44,14 +44,19 @@ public class AIBallController : MonoBehaviour
         playerBallController = player.GetComponent<PlayerBallController>();
     }
 
-    private void Start()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         DetermineAIState();
+
+        // If the AI has any children, absorb them if they are a prop
+        foreach (Transform child in this.transform)
+        {
+            if(child.tag == "Collected" && child.GetComponent<Prop>() == null)
+            {
+                StartCoroutine(AbsorbEntityOverTime(child, this.transform));
+            }
+        }
+
     }
 
     public void ChangeRollSpeed(float speed)
@@ -171,22 +176,42 @@ public class AIBallController : MonoBehaviour
             if (chasingAI) 
                 AIrigidbody.AddForce(AImovement * rollSpeed * Time.fixedDeltaTime);
         }
-        
+    }
 
+    public IEnumerator AbsorbEntityOverTime(Transform child, Transform absorber)
+    {
+        // Seconds to wait before absorption starts
+        yield return new WaitForSeconds(1);
+        Vector3 destinationScale = new Vector3(0, 0, 0);
+
+        if (child != null)
+        {
+            // Move the child's transform towards the center of the absorber
+            // Decrease the child's scale to 0
+            // 0.05 is an arbituary number to slow down the process
+            child.transform.position = Vector3.MoveTowards(child.transform.position, absorber.position, Time.deltaTime * 0.05f);
+            child.transform.localScale = Vector3.Lerp(child.transform.localScale, destinationScale, Time.deltaTime * 0.05f);
+        }
+
+        // Release prop and exit when child object reaches the center
+        if (child.transform.position == absorber.transform.position)
+        {
+            Destroy(child.gameObject);
+            yield return null;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-
+        
         #region Collect Prop
         // If AI collides with and collects a prop
         if (AIgameObject != null && collision.gameObject.CompareTag(_propTag) && collision.transform.localScale.magnitude * 5 <= AIsize)
         {
-
             // Store the size of the collected prop
             float collectedPropSize = collision.transform.localScale.magnitude;
 
-            // Update meshes, stick the prop to the AI, increase AI's size number
+            // Update meshes, stick the prop to the AI, increase AI's size number, decrease speed
             playerBallController.UpdateCanCollectMesh();
             collision.transform.parent = transform;
             AIsize += collectedPropSize;

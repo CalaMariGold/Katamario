@@ -25,8 +25,6 @@ public class PlayerBallController : MonoBehaviour
 
     public static event Action WinGame;
 
-    public PropPooler propPooler;
-
     private void Awake()
     {
         // Cache all our variables
@@ -50,6 +48,9 @@ public class PlayerBallController : MonoBehaviour
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         Vector3 movement = (input.z * _camera.transform.forward) + (input.x * _camera.transform.right);
         _playerRigidbody.AddForce(rollSpeed * Time.deltaTime * movement);
+
+        if (this.GetComponentInParent<AIBallController>() != null)
+            StartCoroutine(AbsorbEntityOverTime(this.transform, this.GetComponentInParent<AIBallController>().transform));
     }
 
     public void ChangeRollSpeed(float speed)
@@ -63,6 +64,7 @@ public class PlayerBallController : MonoBehaviour
     {
         // Check this every time just in case one of the AI's got collected
         _AIobjects = GameObject.FindGameObjectsWithTag(_AItag);
+        _props = GameObject.FindGameObjectsWithTag(_propTag);
 
         // PROP
         for (int i = 0; i < _props.Length; i++)
@@ -86,6 +88,7 @@ public class PlayerBallController : MonoBehaviour
         }
     }
 
+    // Power Up Pickups
     private void OnTriggerEnter(Collider other)
     {
         // If the player picks up a boost powerup
@@ -93,6 +96,29 @@ public class PlayerBallController : MonoBehaviour
         {
             _powerUp.PickUpBoost(this.gameObject);
             Destroy(other.gameObject);
+        }
+    }
+
+    public IEnumerator AbsorbEntityOverTime(Transform child, Transform absorber)
+    {
+        // Seconds to wait before absorption starts
+        yield return new WaitForSeconds(3);
+        Vector3 destinationScale = new Vector3(0, 0, 0);
+
+        if (child != null)
+        {
+            // Move the child's transform towards the center of the absorber
+            // Decrease the child's scale to 0
+            // 0.05 is an arbituary number to slow down the process
+            child.transform.position = Vector3.MoveTowards(child.transform.position, absorber.position, Time.deltaTime * 0.05f);
+            child.transform.localScale = Vector3.Lerp(child.transform.localScale, destinationScale, Time.deltaTime * 0.05f);
+        }
+
+        // Release prop and exit when child object reaches the center
+        if (child.transform.position == absorber.transform.position)
+        {
+            Destroy(child.gameObject);
+            yield return null;
         }
     }
 
@@ -132,10 +158,9 @@ public class PlayerBallController : MonoBehaviour
             }
 
             // Disable the prop's collider and change it's material
-            collision.transform.GetComponent<BoxCollider>().enabled = false;
-            collision.transform.GetComponent<MeshRenderer>().material.color = Color.green;
+            collision.gameObject.GetComponent<BoxCollider>().enabled = false;
+            collision.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
             collision.gameObject.tag = "Collected";
-            propPooler.RemoveFromQueue(collision.gameObject, "SmallProp");
         }
         #endregion
 
