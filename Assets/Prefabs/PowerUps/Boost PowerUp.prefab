@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particles: {fileID: 8955204928907564522}
   _text: {fileID: 1698456216103834350}
-  cooldown: 50
+  cooldown: 10
 --- !u!1 &5297242626151905394
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 80636551928684992}
   - component: {fileID: 1698456216103834350}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CD Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,8 +306,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6c85da8c42143684bae00a92ac04a5f9, type: 2}
+  m_sharedMaterial: {fileID: -6605848541230335040, guid: 6c85da8c42143684bae00a92ac04a5f9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
