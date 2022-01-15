@@ -20,6 +20,7 @@ public class PowerUp : MonoBehaviour
 
     [Header("Particles")]
     [SerializeField] private GameObject speedParticles;
+    [SerializeField] private GameObject speedParticlesGround;
     [SerializeField] public GameObject pickupEffect;
 
     [Header("Other")]
@@ -101,10 +102,13 @@ public class PowerUp : MonoBehaviour
         _alreadyBoosting = true;
         boostImage.GetComponent<Image>().color = new Color32(160, 160, 160, 255);
         speedParticles.SetActive(true);
+        speedParticlesGround.SetActive(true);
+        speedParticlesGround.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(boostDuration);
 
         // Player is no longer boosting, starting cooldown
         boostImage.GetComponent<Image>().color = new Color(255, 255, 255, 100);
+        speedParticlesGround.GetComponent<ParticleSystem>().Stop();
         speedParticles.SetActive(false);
         _cooldown = true;
         _alreadyBoosting = false;

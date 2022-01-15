@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7623458379534968796
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fire
+  m_Shader: {fileID: -6465566751694194690, guid: 776c927165e3b074da1e8fcfa6b2711b, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - Vector1_66DCC35: 10
+    - Vector1_A5CDC6B3: 0.5
+    - _Alpha: 0.5
+    - _Outline_Size: 0.5
+    - _Size: 5
+    - _Speed: 10
+    m_Colors:
+    - Color_347908FB: {r: 27.857622, g: 27.857622, b: 27.857622, a: 0}
+    - Color_62308ACD: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 23.968628, g: 23.968628, b: 23.968628, a: 1}
+    - _Color_: {r: 1, g: 1, b: 1, a: 1}
+    - _Outline_Color: {r: 8, g: 8, b: 8, a: 0}
+  m_BuildTextureStacks: []

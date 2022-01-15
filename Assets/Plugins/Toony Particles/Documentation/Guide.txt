@@ -1,0 +1,60 @@
+﻿Thanks for purchasing!
+
+● Requirements: 
+
+For this package work properly you need install LWRP (Lightweight Render Pipeline) and use Linear Color Space for a better look.
+
+● How to Set-up: 
+
+	●LWRP (Lightweight Render Pipeline):
+	
+	-Go to Window > Package Manager > Lightweight Render Pipeline And Install.
+	-When finish all materials look with magenta color, to solve this you need create a Render Settings. 
+	You can use the settings created for this package or create your own settings.
+	-If you wanna use the settings for this package:
+		go to Toony Particles/Demo/Scene/Settings/LightweightRenderPipelineAsset
+	-If you wanna create your own settings: 
+		go to the project window and right click and Create > Rendering > Lightweight Pipeline Asset.
+	-Now you need to put this on Graphics Settings:
+		go to Edit in the Unity window > Project Settings > Graphics and drag the Lightweight Pipeline Asset in the Scriptable Render Pipeline Settings.
+	
+	●Linear Color Space:
+
+	-Is not necessary to do this, but everything (on special the water) looks great with this.
+	-Go to Edit in the Unity window > Project Settings > Player > In the inspector go to Other Settings > Rendering > Color Space and choose Linear.
+
+
+● If you need Help: 
+	-Send an email to zakhanfx@hotmail.com or comment on our website https://zakhanassets.wordpress.com/
+
+● Shaders:
+
+All shaders are full customizable and editable with shader graph and can be used with particle system.
+
+	●Bonfire: 
+		-Bonfire is a fully procedural effect and useful with a 3D sphere.
+
+	●Fire, Flame:
+		-Fire is a fully procedural effect for any 3D model with uvs. 
+
+	●Force Field:
+		-Force field shades is  a based texture a transparency effects (Only works with Perspective cameras)
+
+	●Hack:
+		-Hack is a fully procedural effect with voronoi and offset effects.
+
+	●Particles Lit, particles Unlit:
+		-This shaders is an alternative to default shader for particles, mix vertex color and emission color (HDR).
+
+	●Smoke Lit:
+		-This shader mix vertex color, HDR Color and Lighting to more accurate effect to Smoke or Dust.
+
+	●Tornado:
+		-Tornado fully customizable with multiple 3d models and deformations with a hand painted texture.
+
+	●Water:
+		-This Shader is a procedural one, with depth on perspective cameras. 
+
+
+
+
