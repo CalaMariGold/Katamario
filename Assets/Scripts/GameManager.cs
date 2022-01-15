@@ -57,11 +57,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         AIBallController.GameOver += LoseScreen;
+        OutOfBounds.GameOver += LoseScreen;
         PlayerBallController.WinGame += WinScreen;
     }
     private void OnDisable()
     {
         AIBallController.GameOver -= LoseScreen;
+        OutOfBounds.GameOver -= LoseScreen;
         PlayerBallController.WinGame += WinScreen;
     }
 
