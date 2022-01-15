@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class PowerUp : MonoBehaviour
+public class PowerUpManager : MonoBehaviour
 {
     static List<GameObject> boostUsers = new List<GameObject>();
     private GameObject player;
@@ -16,7 +17,12 @@ public class PowerUp : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject boostImage;
+    [SerializeField] private GameObject boostIcon;
     [SerializeField] private GameObject BoostCooldownImage;
+    [Range(0, 60)]
+    [SerializeField] private float _defaultCD = 5;
+    private float _currentCD;
+    public TMP_Text _boostCDtext;
 
     [Header("Particles")]
     [SerializeField] private GameObject speedParticles;
@@ -53,11 +59,16 @@ public class PowerUp : MonoBehaviour
             {
                 boostImage.SetActive(true);
                 BoostCooldownImage.SetActive(false);
+                _boostCDtext.gameObject.SetActive(false);
+                _currentCD = _defaultCD;
             }
             else
             {
                 boostImage.SetActive(false);
                 BoostCooldownImage.SetActive(true);
+                _boostCDtext.gameObject.SetActive(true);
+                _currentCD -= Time.deltaTime;
+                _boostCDtext.text = ((int)_currentCD).ToString();
             }
 
 
@@ -66,7 +77,7 @@ public class PowerUp : MonoBehaviour
                 if (_cooldown == false)
                 {
                     _changedRollSpeed = false;
-                    StartCoroutine(BoostCoolDown(3, 5));
+                    StartCoroutine(BoostCoolDown(3, (int)_defaultCD));
                     user.GetComponent<PlayerBallController>().ChangeRollSpeed(500);
                 }
 
@@ -87,27 +98,18 @@ public class PowerUp : MonoBehaviour
         newBoost.transform.parent = powerUpSpawningParent;
     }
 
-    private IEnumerator WaitUntilSpawn()
-    {
-        print("Spawning new boost in 10 seconds");
-        yield return new WaitForSeconds(10);
-        SpawnPowerUp();
-
-        yield return null;
-    }
-
     private IEnumerator BoostCoolDown(int boostDuration, int boostCooldown)
     {
         // Player is currently boosting
         _alreadyBoosting = true;
-        boostImage.GetComponent<Image>().color = new Color32(160, 160, 160, 255);
+        boostIcon.GetComponent<Image>().color = new Color32(255, 150, 150, 255);
         speedParticles.SetActive(true);
         speedParticlesGround.SetActive(true);
         speedParticlesGround.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(boostDuration);
 
         // Player is no longer boosting, starting cooldown
-        boostImage.GetComponent<Image>().color = new Color(255, 255, 255, 100);
+        boostIcon.GetComponent<Image>().color = new Color(255, 0, 0, 100);
         speedParticlesGround.GetComponent<ParticleSystem>().Stop();
         speedParticles.SetActive(false);
         _cooldown = true;

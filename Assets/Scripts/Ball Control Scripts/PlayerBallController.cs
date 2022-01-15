@@ -20,7 +20,7 @@ public class PlayerBallController : MonoBehaviour
     [SerializeField] private CinemachineFreeLook _cineCamera;
 
     [Header("Scripts")]
-    [SerializeField] private PowerUp _powerUp;
+    [SerializeField] private PowerUpManager _powerUpManager;
 
     // Public Vars
     [Header("Player Settings")]
@@ -99,7 +99,7 @@ public class PlayerBallController : MonoBehaviour
         // If the player picks up a boost powerup
         if (other.gameObject.CompareTag(_boostTag))
         {
-            _powerUp.PickUpBoost(this.gameObject);
+            _powerUpManager.PickUpBoost(this.gameObject);
             Destroy(other.gameObject);
         }
     }
