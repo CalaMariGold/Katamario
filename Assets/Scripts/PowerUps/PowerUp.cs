@@ -11,7 +11,7 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private GameObject _particles;
     [SerializeField] private TMP_Text _text;
 
-    private float cooldown = 5;
+    [SerializeField] private float cooldown = 5;
 
     private void Awake()
     {
@@ -35,8 +35,12 @@ public class PowerUp : MonoBehaviour
     {
         cooldown -= Time.deltaTime;
         _text.text = ((int)cooldown).ToString();
+
+        // Keep text facing towards the camera
+        _text.transform.rotation = Quaternion.LookRotation(_text.transform.position - Camera.main.transform.position);
     }
 
+    // Called as soon as the prop spawns
     private IEnumerator PowerUpCoolDown(int cooldown)
     {
         yield return new WaitForSeconds(cooldown);
