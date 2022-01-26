@@ -22,6 +22,10 @@ public class PlayerBallController : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] private PowerUpManager _powerUpManager;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource propPickUpAudio;
+
+
     // Public Vars
     [Header("Player Settings")]
     public float playerSize = 1;
@@ -142,6 +146,7 @@ public class PlayerBallController : MonoBehaviour
             collision.transform.parent = transform;
             playerSize += collectedPropSize;
             ChangeRollSpeed(-collectedPropSize * 3);
+            propPickUpAudio.Play();
 
             // Here, we increase the player's scale and FOV overtime depending on the scale of the prop it collected
             StartCoroutine(ScalePlayerOverTime(0.1f));

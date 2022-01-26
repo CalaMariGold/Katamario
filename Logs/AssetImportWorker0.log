@@ -317,3 +317,223 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005257 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.913 seconds
+Domain Reload Profiling:
+	ReloadAssembly (914ms)
+		BeginReloadAssembly (116ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (25ms)
+		EndReloadAssembly (703ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (135ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (430ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (56ms)
+				ProcessInitializeOnLoadAttributes (302ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.66 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3010 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.9 MB). Loaded Objects now: 3754.
+Memory consumption went from 238.5 MB to 237.6 MB.
+Total: 2.935800 ms (FindLiveObjects: 0.278700 ms CreateObjectMapping: 0.217300 ms MarkObjects: 2.299500 ms  DeleteObjects: 0.139400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 61868.103676 seconds.
+  path: Assets/AudioPlayer.cs
+  artifactKey: Guid(4ab8e10b94bc4b34191fd3a9ecaa6a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AudioPlayer.cs using Guid(4ab8e10b94bc4b34191fd3a9ecaa6a80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab779b4e19199b972447bb35428f7529') in 0.024559 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004236 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.921 seconds
+Domain Reload Profiling:
+	ReloadAssembly (922ms)
+		BeginReloadAssembly (110ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (24ms)
+		EndReloadAssembly (711ms)
+			LoadAssemblies (60ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (143ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (427ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (57ms)
+				ProcessInitializeOnLoadAttributes (297ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.64 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3009 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (0.9 MB). Loaded Objects now: 3767.
+Memory consumption went from 238.5 MB to 237.6 MB.
+Total: 2.763400 ms (FindLiveObjects: 0.257700 ms CreateObjectMapping: 0.185300 ms MarkObjects: 2.186900 ms  DeleteObjects: 0.132700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 23.250624 seconds.
+  path: Assets/Sounds
+  artifactKey: Guid(ed611a2b6aa17dd4c981da085f8afef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds using Guid(ed611a2b6aa17dd4c981da085f8afef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4d285b3905bddb50d8112fcbbd199ef') in 0.004845 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.368418 seconds.
+  path: Assets/Audio
+  artifactKey: Guid(ed611a2b6aa17dd4c981da085f8afef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio using Guid(ed611a2b6aa17dd4c981da085f8afef4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77cd318cb795ba75b43a0650187167d5') in 0.002011 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.714285 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster
+  artifactKey: Guid(b0a99c0fb1c675e48bd7121c8d25e43d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster using Guid(b0a99c0fb1c675e48bd7121c8d25e43d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f65f937194a8cd570946c2c2bf741c2') in 0.001923 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.085223 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Natural Ambiances Pro - HD Remake
+  artifactKey: Guid(c7c87c9f7f1c11c4d8c3fe463f7ef45f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Natural Ambiances Pro - HD Remake using Guid(c7c87c9f7f1c11c4d8c3fe463f7ef45f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22e22355ee230627428b23906da1edd1') in 0.003328 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.622459 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Nature ambiances VOL 2 - HD Remake
+  artifactKey: Guid(43a9e1486e5662348aa24169bda9b02a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Nature ambiances VOL 2 - HD Remake using Guid(43a9e1486e5662348aa24169bda9b02a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6470fff6822b938ad26ca153f7a77873') in 0.003329 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.334159 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/OST Pro
+  artifactKey: Guid(cea2f5e8d53ece745aecfe470b20378b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/OST Pro using Guid(cea2f5e8d53ece745aecfe470b20378b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '173ec26ea5f05b0dd0373a2ec4d189e9') in 0.003609 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.272923 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Ui & Item Sounds - HD Remake
+  artifactKey: Guid(d756c51b4e53464489182ab4632f819c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Ui & Item Sounds - HD Remake using Guid(d756c51b4e53464489182ab4632f819c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f110366ce0eb871c92926ab88a6ad063') in 0.002889 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.190527 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music
+  artifactKey: Guid(d8cbc09ca35e4eb42824da919bb0fa11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music using Guid(d8cbc09ca35e4eb42824da919bb0fa11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e1c5f1466e486ef27cf3981c22338cb') in 0.001984 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.877696 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Bonus Level (Danger).wav
+  artifactKey: Guid(b23d7165991d9f7458e2be204793a978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Bonus Level (Danger).wav using Guid(b23d7165991d9f7458e2be204793a978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2bafb28daba150653fc5b771a9420f5') in 0.152674 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Main Theme.wav
+  artifactKey: Guid(13cbb9fe82afb9244bc1ac27d4183917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Main Theme.wav using Guid(13cbb9fe82afb9244bc1ac27d4183917) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d31d8e4d5332d71031247e76660edac') in 0.009169 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 1 (Loop_01).wav
+  artifactKey: Guid(0c77a93d95997274ba1573fa51fb0def) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 1 (Loop_01).wav using Guid(0c77a93d95997274ba1573fa51fb0def) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04f5aa2707a0cafe80e1bf60d1148067') in 0.007658 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 1 (Loop_02).wav
+  artifactKey: Guid(4b311c39ea21abd4ea564c950657f588) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 1 (Loop_02).wav using Guid(4b311c39ea21abd4ea564c950657f588) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e8209914d46648313ee4e437f7c761f') in 0.009031 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_04.wav
+  artifactKey: Guid(df4e1e9909f44a747a897d383a8c525d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_04.wav using Guid(df4e1e9909f44a747a897d383a8c525d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4169369242a35fea4e37aa7348c22f9a') in 0.009138 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 2.wav
+  artifactKey: Guid(31c2f6960d93ed34fbd7cc624dd3514c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 2.wav using Guid(31c2f6960d93ed34fbd7cc624dd3514c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9382c7a5ea14bc7d4899dc47e6f91d8') in 0.007981 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Main Theme (Loop).wav
+  artifactKey: Guid(c062549f9318abd4b98e248eb2cf2d8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Main Theme (Loop).wav using Guid(c062549f9318abd4b98e248eb2cf2d8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '722bb403cea3116659185ba7f481f1c0') in 0.029888 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Store (Loop_01).wav
+  artifactKey: Guid(4d85849c4eb9bc948b343d4b2ad47377) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Store (Loop_01).wav using Guid(4d85849c4eb9bc948b343d4b2ad47377) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5ccda50864147a879f5665627b592f2') in 0.009241 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_01.wav
+  artifactKey: Guid(476ab4da4ebb64343878b877f7f712ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_01.wav using Guid(476ab4da4ebb64343878b877f7f712ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '686105ad9cde9be9b6bfce0539f3376e') in 0.009028 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

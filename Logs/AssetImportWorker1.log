@@ -323,3 +323,163 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005212 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.913 seconds
+Domain Reload Profiling:
+	ReloadAssembly (914ms)
+		BeginReloadAssembly (114ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (25ms)
+		EndReloadAssembly (707ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (135ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (432ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (55ms)
+				ProcessInitializeOnLoadAttributes (303ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3010 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 27 unused Assets / (0.9 MB). Loaded Objects now: 3754.
+Memory consumption went from 238.5 MB to 237.6 MB.
+Total: 3.003000 ms (FindLiveObjects: 0.292100 ms CreateObjectMapping: 0.251200 ms MarkObjects: 2.320200 ms  DeleteObjects: 0.138500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004114 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.920 seconds
+Domain Reload Profiling:
+	ReloadAssembly (920ms)
+		BeginReloadAssembly (110ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (24ms)
+		EndReloadAssembly (711ms)
+			LoadAssemblies (60ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (142ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (427ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (58ms)
+				ProcessInitializeOnLoadAttributes (297ms)
+				ProcessInitializeOnLoadMethodAttributes (51ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3009 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (0.9 MB). Loaded Objects now: 3767.
+Memory consumption went from 238.5 MB to 237.6 MB.
+Total: 2.759200 ms (FindLiveObjects: 0.238800 ms CreateObjectMapping: 0.163800 ms MarkObjects: 2.231000 ms  DeleteObjects: 0.124900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 670.119478 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Bonus Level (Loop_01).wav
+  artifactKey: Guid(4ca349eba9c1d1542b082eb5382ea4cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Bonus Level (Loop_01).wav using Guid(4ca349eba9c1d1542b082eb5382ea4cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e472138c9b18d795828d99f5292c8507') in 0.156666 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 1.wav
+  artifactKey: Guid(93c6865d718c7e740bff2f446d206c53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 1.wav using Guid(93c6865d718c7e740bff2f446d206c53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ce64b028b53ecf542dd7eda8afb91eb') in 0.008354 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_03.wav
+  artifactKey: Guid(407948fb4825f8f46ba415269b0dec4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_03.wav using Guid(407948fb4825f8f46ba415269b0dec4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87019e73d1a36e3020948084cae20507') in 0.008996 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Store (Loop_02).wav
+  artifactKey: Guid(e75b8ab492c645b4cad62baf3e18cae8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Store (Loop_02).wav using Guid(e75b8ab492c645b4cad62baf3e18cae8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c45550c99cc4a58be10eddec76c1ce3d') in 0.007868 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_05.wav
+  artifactKey: Guid(cc2834899e72fad479a2a5210fe569a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_05.wav using Guid(cc2834899e72fad479a2a5210fe569a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa0d8cc8c33f8ad6cc778ad1bd774018') in 0.007740 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_02.wav
+  artifactKey: Guid(db83d4c8ef08a5b49ac0711dcb27e015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Stinger_02.wav using Guid(db83d4c8ef08a5b49ac0711dcb27e015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a409e42baedafd2ad9718a7dc178685d') in 0.036732 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 2 (Loop_01).wav
+  artifactKey: Guid(4794a3c2f4183b243bdf2ecfa12e2387) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 2 (Loop_01).wav using Guid(4794a3c2f4183b243bdf2ecfa12e2387) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45a16b1993b855d6d82c1e0cdd078c6d') in 0.007881 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 2 (Loop_02).wav
+  artifactKey: Guid(2208a06c9503e5d438f0a02583ec1f30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Ultimate SFX Bundle - HD Remaster/Casual Music/Casual - Level 2 (Loop_02).wav using Guid(2208a06c9503e5d438f0a02583ec1f30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee32be5d99dac8382ae191bfbbefcf7f') in 0.009789 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

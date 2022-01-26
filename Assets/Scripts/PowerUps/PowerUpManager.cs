@@ -29,6 +29,11 @@ public class PowerUpManager : MonoBehaviour
     [SerializeField] private GameObject speedParticlesGround;
     [SerializeField] public GameObject pickupEffect;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource boostingAudio;
+    [SerializeField] private AudioSource pickUpAudio;
+    [SerializeField] private AudioClip boostPickUpAudio;
+
     [Header("Other")]
     [SerializeField] private GameObject[] powerUpSpawnLocations;
     [SerializeField] public Transform powerUpSpawningParent;
@@ -106,11 +111,13 @@ public class PowerUpManager : MonoBehaviour
         speedParticles.SetActive(true);
         speedParticlesGround.SetActive(true);
         speedParticlesGround.GetComponent<ParticleSystem>().Play();
+        boostingAudio.Play();
         yield return new WaitForSeconds(boostDuration);
 
         // Player is no longer boosting, starting cooldown
         boostIcon.GetComponent<Image>().color = new Color(255, 0, 0, 100);
         speedParticlesGround.GetComponent<ParticleSystem>().Stop();
+        boostingAudio.Stop();
         speedParticles.SetActive(false);
         _cooldown = true;
         _alreadyBoosting = false;
@@ -126,6 +133,8 @@ public class PowerUpManager : MonoBehaviour
     {
         // Spawn particle effect at player location when picking up boost
         Instantiate(pickupEffect, player.transform.position, player.transform.rotation);
+
+        pickUpAudio.PlayOneShot(boostPickUpAudio);
 
         // Add the player to one of the player's who have the boost
         // I dont think this implementation is gonna work if we decide to do splitscreen co-op or whatever else
