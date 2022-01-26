@@ -53,7 +53,7 @@ public class AIBallController : MonoBehaviour
     {
         DetermineAIState();
 
-        // If the AI has any children, absorb them if they are a prop
+        // If the AI has any children, absorb them if they aren't a prop
         foreach (Transform child in this.transform)
         {
             if(child.tag == "Collected" && child.GetComponent<Prop>() == null)
@@ -125,7 +125,7 @@ public class AIBallController : MonoBehaviour
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
             {
-                if (gos[i].GetComponent<BoxCollider>().enabled == false)
+                if (gos[i].GetComponent<MeshCollider>().enabled == false)
                 {
                     gos[i].tag = "Collected";
                     return;
@@ -194,8 +194,8 @@ public class AIBallController : MonoBehaviour
             // Move the child's transform towards the center of the absorber
             // Decrease the child's scale to 0
             // 0.05 is an arbituary number to slow down the process
-            child.transform.position = Vector3.MoveTowards(child.transform.position, absorber.position, Time.deltaTime * 0.05f);
-            child.transform.localScale = Vector3.Lerp(child.transform.localScale, destinationScale, Time.deltaTime * 0.05f);
+            child.transform.position = Vector3.MoveTowards(child.transform.position, absorber.position, Time.deltaTime * 0.5f);
+            child.transform.localScale = Vector3.Lerp(child.transform.localScale, destinationScale, Time.deltaTime * 0.5f);
         }
 
         // Release prop and exit when child object reaches the center
@@ -211,7 +211,7 @@ public class AIBallController : MonoBehaviour
         
         #region Collect Prop
         // If AI collides with and collects a prop
-        if (_aiGameObject != null && collision.gameObject.CompareTag(_propTag) && collision.transform.localScale.magnitude * 5 <= aiSize)
+        if (_aiGameObject != null && collision.gameObject.CompareTag(_propTag) && collision.transform.localScale.magnitude <= aiSize)
         {
             // Store the size of the collected prop
             float collectedPropSize = collision.transform.localScale.magnitude;
@@ -220,7 +220,7 @@ public class AIBallController : MonoBehaviour
             _playerBallController.UpdateCanCollectMesh();
             collision.transform.parent = transform;
             aiSize += collectedPropSize;
-            ChangeRollSpeed(-collectedPropSize * 4);
+            ChangeRollSpeed(-collectedPropSize * 3);
             pickUpAudioSource.PlayOneShot(propPickUpAudioClip, 0.4f);
 
 
@@ -235,7 +235,7 @@ public class AIBallController : MonoBehaviour
             }
 
             // Disable the prop's collider and change it's material
-            collision.transform.GetComponent<BoxCollider>().enabled = false;
+            collision.transform.GetComponent<MeshCollider>().enabled = false;
             collision.transform.GetComponent<MeshRenderer>().material.color = Color.green;
             collision.gameObject.tag = "Collected";
 
@@ -308,7 +308,8 @@ public class AIBallController : MonoBehaviour
             }
 
             // Disable the AI's components and change its tag
-            collision.gameObject.GetComponent<AIBallController>()._aiGameObject = null;
+            //collision.gameObject.GetComponent<AIBallController>()._aiGameObject = null;
+            collision.transform.GetComponent<AIBallController>().enabled = false;
             collision.transform.GetComponent<SphereCollider>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
             collision.gameObject.tag = "Collected";

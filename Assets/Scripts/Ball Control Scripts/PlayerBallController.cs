@@ -61,8 +61,14 @@ public class PlayerBallController : MonoBehaviour
         Vector3 movement = (input.z * _camera.transform.forward) + (input.x * _camera.transform.right);
         _playerRigidbody.AddForce(rollSpeed * Time.deltaTime * movement);
 
-        if (this.GetComponentInParent<AIBallController>() != null)
-            StartCoroutine(AbsorbEntityOverTime(this.transform, this.GetComponentInParent<AIBallController>().transform));
+        // If the AI has any children, absorb them if they aren't a prop
+        foreach (Transform child in this.transform)
+        {
+            if (child.tag == "Collected" && child.GetComponent<Prop>() == null)
+            {
+                StartCoroutine(AbsorbEntityOverTime(child, this.transform));
+            }
+        }
     }
 
     public void ChangeRollSpeed(float speed)
@@ -139,8 +145,8 @@ public class PlayerBallController : MonoBehaviour
     {
         
         #region Collect Prop
-        // If player collides with and the prop's scale * 5 is <= the player's size
-        if (collision.gameObject.CompareTag(_propTag) && collision.transform.localScale.magnitude * 5 <= playerSize)
+        // If player collides with and the prop's scale is <= the player's size
+        if (collision.gameObject.CompareTag(_propTag) && collision.transform.localScale.magnitude <= playerSize)
         {
             // Store the size of the collected prop
             float collectedPropSize = collision.transform.localScale.magnitude;
@@ -172,7 +178,7 @@ public class PlayerBallController : MonoBehaviour
             }
 
             // Disable the prop's collider and change it's material
-            collision.gameObject.GetComponent<BoxCollider>().enabled = false;
+            collision.gameObject.GetComponent<MeshCollider>().enabled = false;
             collision.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
             collision.gameObject.tag = "Collected";
         }

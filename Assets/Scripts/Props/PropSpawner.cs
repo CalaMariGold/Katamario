@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 public class PropSpawner : MonoBehaviour
 {
     [Header("Prop")]
-    [SerializeField] private Prop _smallPropPrefab;
+    [SerializeField] private Prop[] _smallPropPrefab;
     [Range(0, 100)]
     [SerializeField] private int _spawnAmount = 10;
 
@@ -24,14 +24,15 @@ public class PropSpawner : MonoBehaviour
 
         _smallPropPool = new ObjectPool<Prop>(() =>
         {
-            return Instantiate(_smallPropPrefab); // Create
+            int rand = Random.Range(0, _smallPropPrefab.Length);
+            return Instantiate(_smallPropPrefab[(int)rand]); // Create
         }, prop =>
         {
             prop.transform.parent = _propParent;
             prop.gameObject.SetActive(true); // Get
             prop.gameObject.tag = "Prop";
-            prop.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            prop.gameObject.GetComponent<BoxCollider>().enabled = true;
+            prop.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            prop.gameObject.GetComponent<MeshCollider>().enabled = true;
             prop.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
             prop.transform.position = _spawnRegion.SpawnPoint;
             prop.transform.rotation = Quaternion.identity;
