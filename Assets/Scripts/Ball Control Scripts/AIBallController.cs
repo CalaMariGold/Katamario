@@ -26,6 +26,12 @@ public class AIBallController : MonoBehaviour
     private Vector3 _aiMovement;
     private float _aiTotalSearchRadius;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource pickUpAudioSource;
+    [SerializeField] private AudioClip propPickUpAudioClip;
+    [SerializeField] private AudioClip playerPickUpAudioClip;
+    [SerializeField] private AudioClip boostPickUpAudioClip;
+
     // Public Vars
     public static event Action GameOver;
     public bool chasingPlayer = false;
@@ -215,7 +221,8 @@ public class AIBallController : MonoBehaviour
             collision.transform.parent = transform;
             aiSize += collectedPropSize;
             ChangeRollSpeed(-collectedPropSize * 4);
-            
+            pickUpAudioSource.PlayOneShot(propPickUpAudioClip, 0.4f);
+
 
             // Increase the scale of the AI depending on the scale of the prop
             // No scale overtime, but possibly should add later
@@ -249,6 +256,7 @@ public class AIBallController : MonoBehaviour
             collision.transform.parent = transform;
             aiSize += _playerBallController.playerSize;
             ChangeRollSpeed(-_playerBallController.playerSize * 4);
+            pickUpAudioSource.PlayOneShot(playerPickUpAudioClip, 1f);
 
             // Increase the scale of the AI depending on the scale of the prop
             // No scale overtime, but possibly should add later
@@ -286,6 +294,7 @@ public class AIBallController : MonoBehaviour
             collision.transform.parent = transform;
             aiSize += collectedaiSize;
             ChangeRollSpeed(-collectedaiSize*4);
+            pickUpAudioSource.PlayOneShot(playerPickUpAudioClip, 1f);
 
 
             // Increase the scale of the AI depending on the scale of the prop

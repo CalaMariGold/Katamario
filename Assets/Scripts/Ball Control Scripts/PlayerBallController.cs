@@ -107,7 +107,7 @@ public class PlayerBallController : MonoBehaviour
         if (other.gameObject.CompareTag(_boostTag))
         {
             _powerUpManager.PickUpBoost(this.gameObject);
-            pickUpAudioSource.PlayOneShot(boostPickUpAudioClip, 0.8f);
+            pickUpAudioSource.PlayOneShot(boostPickUpAudioClip, 0.7f);
             Destroy(other.gameObject);
         }
     }
