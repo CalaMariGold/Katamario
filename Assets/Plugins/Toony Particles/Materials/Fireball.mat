@@ -63,6 +63,8 @@ Material:
     - _Alpha: 1.04
     - _Gradient: 0
     - _Outline_Size: 0.5
+    - _QueueControl: 0
+    - _QueueOffset: 0
     - _Size: 2
     - _Speed: 20
     m_Colors:

@@ -30,7 +30,9 @@ public class PowerUpManager : MonoBehaviour
     [SerializeField] public GameObject pickupEffect;
 
     [Header("Audio")]
-    [SerializeField] private AudioSource boostingAudio;
+    [SerializeField] private AudioSource abilityAudioSource;
+    [SerializeField] private AudioClip abilityReadyAudioClip;
+    [SerializeField] private AudioClip boostingAudioClip;
 
     [Header("Other")]
     [SerializeField] private GameObject[] powerUpSpawnLocations;
@@ -109,13 +111,12 @@ public class PowerUpManager : MonoBehaviour
         speedParticles.SetActive(true);
         speedParticlesGround.SetActive(true);
         speedParticlesGround.GetComponent<ParticleSystem>().Play();
-        boostingAudio.Play();
+        abilityAudioSource.PlayOneShot(boostingAudioClip, 0.8f);
         yield return new WaitForSeconds(boostDuration);
 
         // Player is no longer boosting, starting cooldown
         boostIcon.GetComponent<Image>().color = new Color(255, 0, 0, 100);
         speedParticlesGround.GetComponent<ParticleSystem>().Stop();
-        boostingAudio.Stop();
         speedParticles.SetActive(false);
         _cooldown = true;
         _alreadyBoosting = false;
@@ -123,6 +124,7 @@ public class PowerUpManager : MonoBehaviour
 
         // Boost is available again
         _cooldown = false;
+        abilityAudioSource.PlayOneShot(abilityReadyAudioClip, 1f);
 
         yield return null;
     }
