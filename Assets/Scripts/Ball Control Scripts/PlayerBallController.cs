@@ -23,7 +23,10 @@ public class PlayerBallController : MonoBehaviour
     [SerializeField] private PowerUpManager _powerUpManager;
 
     [Header("Audio")]
-    [SerializeField] private AudioSource propPickUpAudio;
+    [SerializeField] private AudioSource pickUpAudioSource;
+    [SerializeField] private AudioClip propPickUpAudioClip;
+    [SerializeField] private AudioClip playerPickUpAudioClip;
+    [SerializeField] private AudioClip boostPickUpAudioClip;
 
 
     // Public Vars
@@ -104,6 +107,7 @@ public class PlayerBallController : MonoBehaviour
         if (other.gameObject.CompareTag(_boostTag))
         {
             _powerUpManager.PickUpBoost(this.gameObject);
+            pickUpAudioSource.PlayOneShot(boostPickUpAudioClip, 0.8f);
             Destroy(other.gameObject);
         }
     }
@@ -146,7 +150,7 @@ public class PlayerBallController : MonoBehaviour
             collision.transform.parent = transform;
             playerSize += collectedPropSize;
             ChangeRollSpeed(-collectedPropSize * 3);
-            propPickUpAudio.Play();
+            pickUpAudioSource.PlayOneShot(propPickUpAudioClip, 0.4f);
 
             // Here, we increase the player's scale and FOV overtime depending on the scale of the prop it collected
             StartCoroutine(ScalePlayerOverTime(0.1f));
@@ -186,6 +190,7 @@ public class PlayerBallController : MonoBehaviour
             collision.transform.parent = transform;
             playerSize += collectedAISize;
             ChangeRollSpeed(-collectedAISize * 3);
+            pickUpAudioSource.PlayOneShot(playerPickUpAudioClip, 1f);
 
             // Here, we increase the player's scale and FOV overtime depending on the **scale** of the AI it collected
             StartCoroutine(ScalePlayerOverTime(0.1f));

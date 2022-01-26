@@ -31,8 +31,6 @@ public class PowerUpManager : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioSource boostingAudio;
-    [SerializeField] private AudioSource pickUpAudio;
-    [SerializeField] private AudioClip boostPickUpAudio;
 
     [Header("Other")]
     [SerializeField] private GameObject[] powerUpSpawnLocations;
@@ -133,8 +131,6 @@ public class PowerUpManager : MonoBehaviour
     {
         // Spawn particle effect at player location when picking up boost
         Instantiate(pickupEffect, player.transform.position, player.transform.rotation);
-
-        pickUpAudio.PlayOneShot(boostPickUpAudio);
 
         // Add the player to one of the player's who have the boost
         // I dont think this implementation is gonna work if we decide to do splitscreen co-op or whatever else
