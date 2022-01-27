@@ -83,7 +83,6 @@ public class AIBallController : MonoBehaviour
             {
                 // Requirements met, chase the player and set their color
                 _player.GetComponent<MeshRenderer>().material.color = Color.red;
-                Debug.Log("Chasing player");
                 chasingPlayer = true;
 
                 // Move AI towards player
@@ -109,7 +108,6 @@ public class AIBallController : MonoBehaviour
 
     private void ChaseProps()
     {
-        Debug.Log("Chasing props");
         #region ChaseProp Variables
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag(_propTag);
@@ -143,7 +141,6 @@ public class AIBallController : MonoBehaviour
 
     private void ChaseAI()
     {
-        Debug.Log("Chasing AI");
         #region ChaseAI Variables
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag(_AItag);
