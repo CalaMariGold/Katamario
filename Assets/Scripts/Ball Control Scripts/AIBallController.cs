@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class AIBallController : MonoBehaviour
 {
@@ -220,6 +221,7 @@ public class AIBallController : MonoBehaviour
             collision.transform.parent = transform;
             aiSize += collectedPropSize;
             ChangeRollSpeed(-collectedPropSize * 3);
+            pickUpAudioSource.pitch = Random.Range(0.8f, 1.2f);
             pickUpAudioSource.PlayOneShot(propPickUpAudioClip, 0.4f);
 
 
@@ -255,6 +257,7 @@ public class AIBallController : MonoBehaviour
             collision.transform.parent = transform;
             aiSize += _playerBallController.playerSize;
             ChangeRollSpeed(-_playerBallController.playerSize * 4);
+            pickUpAudioSource.pitch = 1;
             pickUpAudioSource.PlayOneShot(playerPickUpAudioClip, 1f);
 
             // Increase the scale of the AI depending on the scale of the prop
@@ -286,13 +289,14 @@ public class AIBallController : MonoBehaviour
         if (collision.gameObject.CompareTag(_AItag) && collision.gameObject.GetComponent<AIBallController>().aiSize < aiSize)
         {
             // Store the size of the collected AI
-            float collectedaiSize = collision.gameObject.GetComponent<AIBallController>().aiSize;
+            float collectedAiSize = collision.gameObject.GetComponent<AIBallController>().aiSize;
 
             // Update meshes, stick the prop to the AI, increase AI's size number
             _playerBallController.UpdateCanCollectMesh();
             collision.transform.parent = transform;
-            aiSize += collectedaiSize;
-            ChangeRollSpeed(-collectedaiSize*4);
+            aiSize += collectedAiSize;
+            ChangeRollSpeed(-collectedAiSize * 4);
+            pickUpAudioSource.pitch = 1;
             pickUpAudioSource.PlayOneShot(playerPickUpAudioClip, 1f);
 
 

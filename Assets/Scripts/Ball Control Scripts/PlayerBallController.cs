@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Random = UnityEngine.Random;
 
 public class PlayerBallController : MonoBehaviour
 {
@@ -106,18 +107,6 @@ public class PlayerBallController : MonoBehaviour
         }
     }
 
-    // Power Up Pickups
-    private void OnTriggerEnter(Collider other)
-    {
-        // If the player picks up a boost powerup
-        if (other.gameObject.CompareTag(_boostTag))
-        {
-            _powerUpManager.PickUpBoost(this.gameObject);
-            pickUpAudioSource.PlayOneShot(boostPickUpAudioClip, 0.7f);
-            Destroy(other.gameObject);
-        }
-    }
-
     public IEnumerator AbsorbEntityOverTime(Transform child, Transform absorber)
     {
         // Seconds to wait before absorption starts
@@ -141,6 +130,19 @@ public class PlayerBallController : MonoBehaviour
         }
     }
 
+    // Power Up Pickups
+    private void OnTriggerEnter(Collider other)
+    {
+        // If the player picks up a boost powerup
+        if (other.gameObject.CompareTag(_boostTag))
+        {
+            _powerUpManager.PickUpBoost(this.gameObject);
+            pickUpAudioSource.pitch = 1;
+            pickUpAudioSource.PlayOneShot(boostPickUpAudioClip, 0.7f);
+            Destroy(other.gameObject);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         
@@ -156,6 +158,7 @@ public class PlayerBallController : MonoBehaviour
             collision.transform.parent = transform;
             playerSize += collectedPropSize;
             ChangeRollSpeed(-collectedPropSize * 3);
+            pickUpAudioSource.pitch = Random.Range(0.8f, 1.2f);
             pickUpAudioSource.PlayOneShot(propPickUpAudioClip, 0.4f);
 
             // Here, we increase the player's scale and FOV overtime depending on the scale of the prop it collected
@@ -196,6 +199,7 @@ public class PlayerBallController : MonoBehaviour
             collision.transform.parent = transform;
             playerSize += collectedAISize;
             ChangeRollSpeed(-collectedAISize * 3);
+            pickUpAudioSource.pitch = 1;
             pickUpAudioSource.PlayOneShot(playerPickUpAudioClip, 1f);
 
             // Here, we increase the player's scale and FOV overtime depending on the **scale** of the AI it collected
