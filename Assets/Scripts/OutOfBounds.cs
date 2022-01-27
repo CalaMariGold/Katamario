@@ -11,7 +11,8 @@ public class OutOfBounds : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Invoke the GameOver function in GameManager
-        GameOver?.Invoke();
+        if(collision.gameObject.CompareTag("Player"))
+            GameOver?.Invoke();
 
         Destroy(collision.gameObject);
     }

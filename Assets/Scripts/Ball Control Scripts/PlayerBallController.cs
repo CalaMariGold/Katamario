@@ -64,7 +64,7 @@ public class PlayerBallController : MonoBehaviour
         // If the AI has any children, absorb them if they aren't a prop
         foreach (Transform child in this.transform)
         {
-            if (child.tag == "Collected" && child.GetComponent<Prop>() == null)
+            if (child.CompareTag("Collected") && child.GetComponent<Prop>() == null)
             {
                 StartCoroutine(AbsorbEntityOverTime(child, this.transform));
             }

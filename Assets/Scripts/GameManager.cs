@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
             // Change player's mesh depending on
             if (aiChasingPlayer)
                 _player.GetComponent<MeshRenderer>().material.color = Color.red;
-            else if(_player.tag.Equals("Player")) // Don't change after player died
+            else if(_player.CompareTag("Player")) // Don't change after player died
                 _player.GetComponent<MeshRenderer>().material.color = Color.white;
         }
     }

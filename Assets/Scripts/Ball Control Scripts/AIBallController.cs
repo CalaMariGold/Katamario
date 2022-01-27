@@ -56,7 +56,7 @@ public class AIBallController : MonoBehaviour
         // If the AI has any children, absorb them if they aren't a prop
         foreach (Transform child in this.transform)
         {
-            if(child.tag == "Collected" && child.GetComponent<Prop>() == null)
+            if(child.CompareTag("Collected") && child.GetComponent<Prop>() == null)
             {
                 StartCoroutine(AbsorbEntityOverTime(child, this.transform));
             }
@@ -83,7 +83,7 @@ public class AIBallController : MonoBehaviour
             {
                 // Requirements met, chase the player and set their color
                 _player.GetComponent<MeshRenderer>().material.color = Color.red;
-
+                Debug.Log("Chasing player");
                 chasingPlayer = true;
 
                 // Move AI towards player
@@ -109,6 +109,7 @@ public class AIBallController : MonoBehaviour
 
     private void ChaseProps()
     {
+        Debug.Log("Chasing props");
         #region ChaseProp Variables
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag(_propTag);
@@ -142,6 +143,7 @@ public class AIBallController : MonoBehaviour
 
     private void ChaseAI()
     {
+        Debug.Log("Chasing AI");
         #region ChaseAI Variables
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag(_AItag);

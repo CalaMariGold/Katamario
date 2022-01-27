@@ -18,7 +18,7 @@ public class Prop : MonoBehaviour
     private void Update()
     {
         // Aborb this prop into the parent if it's been collected
-        if(this.gameObject.tag == "Collected")
+        if(this.gameObject.CompareTag("Collected"))
             StartCoroutine(AbsorbPropOverTime(this.transform, this.GetComponentInParent<SphereCollider>().transform));
     }
 
@@ -34,7 +34,7 @@ public class Prop : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // Move the prop to another position if it's inside another prop
-        if(collision.gameObject.tag == "Prop")
+        if(collision.gameObject.CompareTag("Prop"))
             this.transform.position = _spawnRegion.GetComponent<SpawnRegion>().SpawnPoint;
     }
 
