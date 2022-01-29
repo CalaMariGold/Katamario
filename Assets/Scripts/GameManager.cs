@@ -25,9 +25,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Gameplay UI")]
     [SerializeField] private TMP_Text _playerCurrentScoreText;
+    [SerializeField] private GameObject _gameUI;
 
-    [Header("AI")]
-    [SerializeField] bool aiChasingPlayer = false;
+    [Header("AI & Players")]
+    [SerializeField] private bool aiChasingPlayer = false;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Transform respawnPos;
+    private GameObject playerParent;
 
     [Header("Debugging/Testing")]
     [SerializeField] private float timeScale = 1;
@@ -37,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         _playerBallController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBallController>();
         _aiObjects = GameObject.FindGameObjectsWithTag("AI");
+        playerParent = GameObject.FindGameObjectWithTag("PlayerParent");
 
         _player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -93,8 +98,11 @@ public class GameManager : MonoBehaviour
 
     private void LoseScreen()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         _playerScore = (Mathf.Round((_playerBallController.playerSize - 1) * 100));
-        _playerCurrentScoreText.GetComponentInParent<Transform>().gameObject.SetActive(false);
+        _gameUI.SetActive(false);
 
         _gameOverParentObject.SetActive(true);
         _gameOverStatsText.text = "Score: " + _playerScore;
@@ -102,10 +110,31 @@ public class GameManager : MonoBehaviour
 
     private void WinScreen()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         _playerScore = (Mathf.Round((_playerBallController.playerSize - 1) * 100));
         _playerCurrentScoreText.GetComponentInParent<Transform>().gameObject.SetActive(false);
 
         _winParentObject.SetActive(true);
         _winStatsText.text = "Score: " + _playerScore;
+    }
+
+    public void Respawn()
+    {
+        playerParent = GameObject.FindGameObjectWithTag("PlayerParent");
+
+        Destroy(playerParent);
+        Instantiate(playerPrefab, respawnPos.position, Quaternion.identity);
+        RemoveEndScreen();
+        
+    }
+    private void RemoveEndScreen()
+    {
+        _gameUI.SetActive(true);
+        _winParentObject.SetActive(false);
+        _gameOverParentObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - AI
   - BoostPowerUp
   - PropSpawnRegion
+  - PowerUpManager
+  - PlayerParent
   layers:
   - Default
   - TransparentFX

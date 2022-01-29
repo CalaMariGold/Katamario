@@ -15,19 +15,26 @@ public class PlayerBallController : MonoBehaviour
     private Rigidbody _playerRigidbody;
     private GameObject[] _props;
     private GameObject[] _AIobjects;
+    private PowerUpManager _powerUpManager;
+
+    [Header("Particles")]
+    [SerializeField] private GameObject speedParticles;
+    [SerializeField] private GameObject speedParticlesGround;
 
     [Header("Camera")]
     [SerializeField] private Camera _camera;
-    [SerializeField] private CinemachineFreeLook _cineCamera;
-
-    [Header("Scripts")]
-    [SerializeField] private PowerUpManager _powerUpManager;
+    [SerializeField] private CinemachineFreeLook _cineCamera;    
 
     [Header("Audio")]
     [SerializeField] private AudioSource pickUpAudioSource;
+    [SerializeField] private AudioSource abilityAudioSource;
+
     [SerializeField] private AudioClip propPickUpAudioClip;
     [SerializeField] private AudioClip playerPickUpAudioClip;
     [SerializeField] private AudioClip boostPickUpAudioClip;
+
+    [SerializeField] private AudioClip abilityReadyAudioClip;
+    [SerializeField] private AudioClip boostingAudioClip;
 
 
     // Public Vars
@@ -45,6 +52,7 @@ public class PlayerBallController : MonoBehaviour
         _playerRigidbody = _player.GetComponent<Rigidbody>();
         _props = GameObject.FindGameObjectsWithTag(_propTag);
         _AIobjects = GameObject.FindGameObjectsWithTag(_AItag);
+        _powerUpManager = GameObject.FindGameObjectWithTag("PowerUpManager").GetComponent<PowerUpManager>();
 
         // If there is no specific camera assigned, use camera.main
         _camera ??= Camera.main;
@@ -70,6 +78,25 @@ public class PlayerBallController : MonoBehaviour
                 StartCoroutine(AbsorbEntityOverTime(child, this.transform));
             }
         }
+    }
+
+    public void StartBoosting()
+    {
+        speedParticles.SetActive(true);
+        speedParticlesGround.SetActive(true);
+        speedParticlesGround.GetComponent<ParticleSystem>().Play();
+        abilityAudioSource.PlayOneShot(boostingAudioClip, 0.8f);
+    }
+
+    public void StopBoosting()
+    {
+        speedParticlesGround.GetComponent<ParticleSystem>().Stop();
+        speedParticles.SetActive(false);
+    }
+
+    public void AbilityReady()
+    {
+        abilityAudioSource.PlayOneShot(abilityReadyAudioClip, 1f);
     }
 
     public void ChangeRollSpeed(float speed)

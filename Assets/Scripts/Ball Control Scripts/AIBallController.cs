@@ -75,6 +75,12 @@ public class AIBallController : MonoBehaviour
         // Increase _aiSearchRadius based on their size
         _aiTotalSearchRadius = (aiSize / 2) + _aiSearchRadius;
 
+        // Check if the player exists, then assign it to player var
+        if (GameObject.FindGameObjectWithTag(_playerTag) != null)
+            _player = GameObject.FindGameObjectWithTag(_playerTag);
+        else
+            _player = null;
+
         // First, we check if AI size > player size, also make sure neither are null
         if (_player != null && _aiGameObject != null &&
             aiSize > _playerBallController.playerSize)
@@ -196,14 +202,16 @@ public class AIBallController : MonoBehaviour
             // 0.05 is an arbituary number to slow down the process
             child.transform.position = Vector3.MoveTowards(child.transform.position, absorber.position, Time.deltaTime * 0.5f);
             child.transform.localScale = Vector3.Lerp(child.transform.localScale, destinationScale, Time.deltaTime * 0.5f);
+
+            // Release prop and exit when child object reaches the center
+            if (child.transform.position == absorber.transform.position)
+            {
+                Destroy(child.gameObject);
+                yield return null;
+            }
         }
 
-        // Release prop and exit when child object reaches the center
-        if (child.transform.position == absorber.transform.position)
-        {
-            Destroy(child.gameObject);
-            yield return null;
-        }
+        
     }
 
     void OnCollisionEnter(Collision collision)
@@ -273,6 +281,7 @@ public class AIBallController : MonoBehaviour
             // Disable the players's components and change its tag
             _player = null;
             collision.transform.GetComponent<SphereCollider>().enabled = false;
+            collision.transform.GetComponent<PlayerBallController>().enabled = false;
             collision.transform.GetComponent<Rigidbody>().isKinematic = true;
             collision.gameObject.tag = "Collected";
 

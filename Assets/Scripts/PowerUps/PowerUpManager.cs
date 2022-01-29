@@ -8,9 +8,12 @@ public class PowerUpManager : MonoBehaviour
 {
     static List<GameObject> boostUsers = new List<GameObject>();
     private GameObject player;
+    private PlayerBallController playerBallController;
     private bool _cooldown = false;
     private bool _alreadyBoosting = false;
     private bool _changedRollSpeed;
+    private const string _playerTag = "Player";
+    private const string _boostTag = "BoostPowerUp";
 
     [Header("Power Ups")]
     [SerializeField] private GameObject boostPrefab;
@@ -25,20 +28,13 @@ public class PowerUpManager : MonoBehaviour
     public TMP_Text _boostCDtext;
 
     [Header("Particles")]
-    [SerializeField] private GameObject speedParticles;
-    [SerializeField] private GameObject speedParticlesGround;
     [SerializeField] public GameObject pickupEffect;
 
-    [Header("Audio")]
-    [SerializeField] private AudioSource abilityAudioSource;
-    [SerializeField] private AudioClip abilityReadyAudioClip;
-    [SerializeField] private AudioClip boostingAudioClip;
+
 
     [Header("Other")]
     [SerializeField] private GameObject[] powerUpSpawnLocations;
     [SerializeField] public Transform powerUpSpawningParent;
-    private const string _playerTag = "Player";
-    private const string _boostTag = "BoostPowerUp";
 
 
     private void Awake()
@@ -48,6 +44,12 @@ public class PowerUpManager : MonoBehaviour
             player = GameObject.FindGameObjectWithTag(_playerTag);
         else
             player = null;
+
+        // Check if the player controller exists, then assign it to player controller var
+        if (GameObject.FindGameObjectWithTag(_playerTag) != null)
+            playerBallController = GameObject.FindGameObjectWithTag(_playerTag).GetComponent<PlayerBallController>();
+        else
+            playerBallController = null;
 
     }
 
@@ -105,26 +107,28 @@ public class PowerUpManager : MonoBehaviour
 
     private IEnumerator BoostCoolDown(int boostDuration, int boostCooldown)
     {
+        // Check if the player controller exists, then assign it to player controller var
+        if (GameObject.FindGameObjectWithTag(_playerTag) != null)
+            playerBallController = GameObject.FindGameObjectWithTag(_playerTag).GetComponent<PlayerBallController>();
+        else
+            playerBallController = null;
+
         // Player is currently boosting
         _alreadyBoosting = true;
         boostIcon.GetComponent<Image>().color = new Color32(255, 150, 150, 255);
-        speedParticles.SetActive(true);
-        speedParticlesGround.SetActive(true);
-        speedParticlesGround.GetComponent<ParticleSystem>().Play();
-        abilityAudioSource.PlayOneShot(boostingAudioClip, 0.8f);
+        playerBallController.StartBoosting();
         yield return new WaitForSeconds(boostDuration);
 
         // Player is no longer boosting, starting cooldown
         boostIcon.GetComponent<Image>().color = new Color(255, 0, 0, 100);
-        speedParticlesGround.GetComponent<ParticleSystem>().Stop();
-        speedParticles.SetActive(false);
+        playerBallController.StopBoosting();
         _cooldown = true;
         _alreadyBoosting = false;
         yield return new WaitForSeconds(boostCooldown);
 
         // Boost is available again
         _cooldown = false;
-        abilityAudioSource.PlayOneShot(abilityReadyAudioClip, 1f);
+        playerBallController.AbilityReady();
 
         yield return null;
     }
